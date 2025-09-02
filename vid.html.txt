@@ -1,0 +1,17 @@
+import puppeteer from "puppeteer";
+
+(async () => {
+  const url = "https://www.latitudemiami.com/";
+  const browser = await puppeteer.launch();
+  const page = await browser.newPage();
+  await page.goto(url, { waitUntil: "networkidle2" });
+
+  const videoUrls = await page.evaluate(() =>
+    Array.from(document.querySelectorAll("iframe, video, source"))
+      .map(el => el.src || el.getAttribute("src"))
+      .filter(Boolean)
+  );
+
+  console.log(videoUrls);
+  await browser.close();
+})();

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timeless Treasure Box</title>
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            overflow: hidden;
+        }
+        .video-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            z-index: -1;
+        }
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0,0,0,0.45);
+            z-index: 0;
+        }
+        .content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: #fff;
+            z-index: 1;
+        }
+        .title {
+            font-size: 3.2em;
+            margin-bottom: 20px;
+            letter-spacing: 4px;
+            font-family: 'Pacifico', cursive;
+            text-shadow: 0 4px 24px rgba(226,177,60,0.25), 0 1px 0 #fff;
+            animation: fancyTitleIn 2.2s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+            opacity: 0;
+        }
+            @keyframes fancyTitleIn {
+                0% {
+                    opacity: 0;
+                    transform: translateY(60px) scale(0.8) rotateX(40deg);
+                    filter: blur(12px);
+                }
+                60% {
+                    opacity: 1;
+                    transform: translateY(-10px) scale(1.05) rotateX(0deg);
+                    filter: blur(0px);
+                }
+                80% {
+                    transform: translateY(0px) scale(0.98);
+                }
+                100% {
+                    opacity: 1;
+                    transform: translateY(0px) scale(1);
+                }
+            }
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 220px;
+            height: 100vh;
+            background: rgba(85, 75, 131, 0.92);
+            box-shadow: 2px 0 16px rgba(0,0,0,0.18);
+            z-index: 3;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            align-items: flex-start;
+        }
+        .sidebar li {
+            width: 100%;
+        }
+        .nav-link {
+            display: block;
+            width: 180px;
+            padding: 14px 24px;
+            background: #e2b13c;
+            color: #222;
+            font-weight: bold;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 1.1em;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+            transition: background 0.2s, color 0.2s, transform 0.2s;
+            margin-left: 10px;
+        }
+        .nav-link:hover {
+            background: #fff;
+            color: #e2b13c;
+            transform: scale(1.06);
+        }
+        .content {
+            left: calc(50% + 110px);
+        }
+        .logo-large {
+            width: 240px;
+            margin: 0 auto;
+            display: block;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+            border-radius: 24px;
+            background: rgba(255,255,255,0.85);
+            border: 3px solid #e2b13c;
+            padding: 16px;
+        }
+        .logo-top-left {
+            position: absolute;
+            top: 32px;
+            left: 32px;
+            z-index: 9999;
+        }
+        .logo {
+            width: 180px;
+            margin-bottom: 0;
+            border-radius: 16px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+            background: rgba(255,255,255,0.85);
+            border: 2px solid #e2b13c;
+            padding: 8px;
+        }
+        /* Add styles for new content */
+        .container {
+            margin-top: 120px;
+            text-align: center;
+            color: #fff;
+            z-index: 2;
+        }
+        .container .logo {
+            width: 180px;
+            margin-bottom: 18px;
+            border-radius: 16px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+            background: rgba(255,255,255,0.85);
+            border: 2px solid #e2b13c;
+            padding: 8px;
+        }
+        .tagline {
+            font-size: 1.3em;
+            color: #e2b13c;
+            margin-top: 10px;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+        .about {
+            max-width: 700px;
+            margin: 48px auto 0 auto;
+            background: rgba(34,34,34,0.85);
+            padding: 32px 28px;
+            border-radius: 18px;
+            color: #fff;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.18);
+        }
+        .about h2 {
+            color: #e2b13c;
+            font-size: 2em;
+            margin-bottom: 18px;
+        }
+        .about .mission {
+            font-size: 1.2em;
+            color: #e2b13c;
+            margin-top: 18px;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <video class="video-bg" src="BrickellVideo.mp4" autoplay loop muted playsinline></video>
+    <div class="overlay"></div>
+    <div class="logo-top-left">
+        <img src="ttblogo.png" alt="Timeless Treasure Box Logo" class="logo" id="ttbLogo">
+    </div>
+    <nav class="sidebar">
+        <ul>
+            <li><a class="nav-link" href="mailto:timelesstreasurebox25@gmail.com">Contact Us</a></li>
+            <li><a class="nav-link" href="https://poshmark.com/closet/timelesstreasurebox" target="_blank">Poshmark</a></li>
+            <li><a class="nav-link" href="https://www.ebay.com/str/timelesstreasurebox" target="_blank">eBay Store</a></li>
+            <li><a class="nav-link" href="https://www.etsy.com/shop/TimelessTreasureBox" target="_blank">Etsy</a></li>
+            <li><a class="nav-link" href="#" id="aboutNav">About Us</a></li>
+        </ul>
+    </nav>
+    <div class="content">
+    <div class="title" style="font-family: 'Pacifico', cursive;"></div>
+    </div>
+    <div class="container">
+        <h1 class="title" id="mainTitle">Welcome to Timeless Treasure Box</h1>
+        <p class="tagline">Sparkle, style, and surprises—delivered.</p>
+    </div>
+    <section class="about" id="aboutSection" style="display:none;">
+        <h2>About Us</h2>
+        <p>
+            At <strong>Timeless Treasure Box</strong>, we believe that life’s little luxuries should be within everyone’s reach. 
+            Our carefully curated collection of <strong>bracelets, jewelry, stylish bags, and unique trinkets</strong> is designed 
+            to add a touch of sparkle and individuality to your everyday.
+        </p>
+        <p>
+            From timeless classics to playful statement pieces, each treasure in our box is handpicked to bring 
+            <strong>affordable elegance</strong> and a sense of wonder into your world. Whether you’re treating yourself or 
+            surprising someone special, our mission is simple:
+        </p>
+        <p class="mission">
+            ✨ To deliver joy, beauty, and style—one timeless treasure at a time.
+        </p>
+    </section>
+    <script>
+// Show About Us on logo hover
+const logo = document.getElementById('ttbLogo');
+const aboutSection = document.getElementById('aboutSection');
+const mainTitle = document.getElementById('mainTitle');
+logo.addEventListener('mouseenter', () => {
+    aboutSection.style.display = 'block';
+    logo.style.display = 'none';
+    mainTitle.style.display = 'none';
+});
+logo.addEventListener('mouseleave', () => {
+    aboutSection.style.display = 'none';
+    logo.style.display = '';
+    mainTitle.style.display = '';
+});
+// Show About Us on sidebar click
+const aboutNav = document.getElementById('aboutNav');
+aboutNav.addEventListener('click', (e) => {
+    e.preventDefault();
+    aboutSection.style.display = 'block';
+    logo.style.display = 'none';
+    mainTitle.style.display = 'none';
+});
+// Hide About Us when clicking outside
+aboutSection.addEventListener('click', () => {
+    aboutSection.style.display = 'none';
+    logo.style.display = '';
+    mainTitle.style.display = '';
+});
+</script>
+</body>
+</html>
