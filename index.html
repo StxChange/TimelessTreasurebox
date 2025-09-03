@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Timeless Treasure Box</title>
     <style>
-    @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Tangerine&display=swap');
         body, html {
             height: 100%;
             margin: 0;
@@ -41,10 +41,10 @@
             z-index: 1;
         }
         .title {
-            font-size: 3.2em;
+            font-size: 4.2em;
             margin-bottom: 20px;
             letter-spacing: 4px;
-            font-family: 'Pacifico', cursive;
+            font-family: 'Tangerine', cursive; 
             text-shadow: 0 4px 24px rgba(226,177,60,0.25), 0 1px 0 #fff;
             animation: fancyTitleIn 2.2s cubic-bezier(0.23, 1, 0.32, 1) forwards;
             opacity: 0;
@@ -157,11 +157,12 @@
             padding: 8px;
         }
         .tagline {
-            font-size: 1.3em;
-            color: #e2b13c;
+            font-size: 1.6em;
+            color: #e7daaf;
             margin-top: 10px;
             margin-bottom: 30px;
             font-style: italic;
+            font-weight: bold;
         }
         .about {
             max-width: 700px;
@@ -171,6 +172,7 @@
             border-radius: 18px;
             color: #fff;
             box-shadow: 0 2px 16px rgba(0,0,0,0.18);
+            position: relative;
         }
         .about h2 {
             color: #e2b13c;
@@ -195,33 +197,34 @@
     <nav class="sidebar">
         <ul>
             <li><a class="nav-link" href="mailto:timelesstreasurebox25@gmail.com">Contact Us</a></li>
-            <li><a class="nav-link" href="https://poshmark.com/closet/timelesstreasurebox" target="_blank">Poshmark</a></li>
+            <li><a class="nav-link" href="https://poshmark.com/closet/timelesstbox" target="_blank">Poshmark</a></li>
             <li><a class="nav-link" href="https://www.ebay.com/str/timelesstreasurebox" target="_blank">eBay Store</a></li>
             <li><a class="nav-link" href="https://www.etsy.com/shop/TimelessTreasureBox" target="_blank">Etsy</a></li>
             <li><a class="nav-link" href="#" id="aboutNav">About Us</a></li>
         </ul>
     </nav>
     <div class="content">
-    <div class="title" style="font-family: 'Pacifico', cursive;"></div>
+    <div class="title" style="font-family: 'Tangerine', cursive;"></div>
     </div>
     <div class="container">
         <h1 class="title" id="mainTitle">Welcome to Timeless Treasure Box</h1>
-        <p class="tagline">Sparkle, style, and surprises—delivered.</p>
+        <p class="tagline">✨ Sparkle, style, and surprises — delivered ✨</p>
     </div>
     <section class="about" id="aboutSection" style="display:none;">
-        <h2>About Us</h2>
+    <button id="closeAbout" style="position:absolute;top:12px;right:18px;background:transparent;border:none;font-size:2em;color:#e2b13c;cursor:pointer;z-index:10;">&times;</button>
+    <h2>About Us</h2>
         <p>
             At <strong>Timeless Treasure Box</strong>, we believe that life’s little luxuries should be within everyone’s reach. 
             Our carefully curated collection of <strong>bracelets, jewelry, stylish bags, and unique trinkets</strong> is designed 
             to add a touch of sparkle and individuality to your everyday.
         </p>
         <p>
-            From timeless classics to playful statement pieces, each treasure in our box is handpicked to bring 
+            Each treasure in our box is handpicked to bring 
             <strong>affordable elegance</strong> and a sense of wonder into your world. Whether you’re treating yourself or 
             surprising someone special, our mission is simple:
         </p>
         <p class="mission">
-            ✨ To deliver joy, beauty, and style—one timeless treasure at a time.
+            ✨ To deliver joy, beauty, and style — one timeless treasure at a time.
         </p>
     </section>
     <script>
@@ -229,14 +232,14 @@
 const logo = document.getElementById('ttbLogo');
 const aboutSection = document.getElementById('aboutSection');
 const mainTitle = document.getElementById('mainTitle');
+const closeAbout = document.getElementById('closeAbout');
+
 logo.addEventListener('mouseenter', () => {
     aboutSection.style.display = 'block';
-    logo.style.display = 'none';
     mainTitle.style.display = 'none';
 });
 logo.addEventListener('mouseleave', () => {
     aboutSection.style.display = 'none';
-    logo.style.display = '';
     mainTitle.style.display = '';
 });
 // Show About Us on sidebar click
@@ -244,13 +247,12 @@ const aboutNav = document.getElementById('aboutNav');
 aboutNav.addEventListener('click', (e) => {
     e.preventDefault();
     aboutSection.style.display = 'block';
-    logo.style.display = 'none';
     mainTitle.style.display = 'none';
 });
-// Hide About Us when clicking outside
-aboutSection.addEventListener('click', () => {
+// Hide About Us when clicking X
+closeAbout.addEventListener('click', (e) => {
+    e.stopPropagation();
     aboutSection.style.display = 'none';
-    logo.style.display = '';
     mainTitle.style.display = '';
 });
 </script>

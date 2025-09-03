@@ -1,0 +1,124 @@
+<!-- Load Roboto Flex variable font -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap" rel="stylesheet">
+
+
+
+
+
+<div class="stx-animate-text">
+
+    <span style="--index:1">T</span>
+
+    <span style="--index:2">i</span>
+
+    <span style="--index:3">m</span>
+
+    <span style="--index:4">e</span>
+
+    <span style="--index:5">l</span>
+
+    <span style="--index:6">e</span>
+
+    <span style="--index:7">s</span>
+
+    <span style="--index:8">s</span>
+
+    <span style="--index:9">&nbsp;</span>
+
+    <span style="--index:10">T</span>
+
+    <span style="--index:11">r</span>
+
+    <span style="--index:12">e</span>
+
+    <span style="--index:13">a</span>
+
+    <span style="--index:14">s</span>
+
+    <span style="--index:15">u</span>
+
+    <span style="--index:16">r</span>
+
+    <span style="--index:17">e</span>
+
+    <span style="--index:18">&nbsp;</span>
+
+    <span style="--index:19">B</span>
+
+    <span style="--index:20">o</span>
+
+    <span style="--index:21">x</span>
+
+</div>
+
+
+
+
+<style>
+
+body {
+
+    margin: 0;
+
+    color: rgb(216, 185, 83);
+
+    display: flex;
+
+    background: black;
+
+    align-items: center;
+
+    justify-content: center;
+
+    height: 100vh;
+
+    font-family: "Roboto Flex", system-ui, sans-serif;
+
+    font-size: 10vw;
+
+}
+
+ 
+
+.stx-animate-text {
+
+    letter-spacing: -0.18em;
+
+    text-shadow: -3px 1px 0 #000;
+
+}
+
+ 
+
+/* Use font-weight instead of font-variation-settings */
+
+@keyframes stx-breathe {
+
+    0%, 100% { font-weight: 1000; }
+
+    50%      { font-weight: 100; }
+
+}
+
+ 
+
+.stx-animate-text span {
+
+    display: inline-block; /* needed for transforms/animations */
+
+    animation: stx-breathe 4s ease-in-out infinite;
+
+    animation-delay: calc(var(--index) * 0.4s);
+
+    font-weight: 100; /* starting value */
+
+}
+
+</style>
+
+ 
