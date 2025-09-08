@@ -186,6 +186,96 @@
             font-weight: bold;
             text-align: center;
         }
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .sidebar {
+                width: 140px;
+            }
+            .nav-link {
+                width: 110px;
+                font-size: 0.95em;
+                padding: 10px 12px;
+            }
+            .logo-top-left {
+                top: 12px;
+                left: 12px;
+            }
+            .logo {
+                width: 110px;
+                padding: 4px;
+            }
+            .logo-large {
+                width: 120px;
+                padding: 8px;
+            }
+            .container {
+                margin-top: 60px;
+            }
+            .title {
+                font-size: 2.2em;
+            }
+            .about {
+                max-width: 95vw;
+                padding: 18px 8px;
+            }
+        }
+        @media (max-width: 600px) {
+            .sidebar {
+                position: static;
+                width: 100vw;
+                height: auto;
+                flex-direction: row;
+                box-shadow: none;
+                background: rgba(85, 75, 131, 0.98);
+                z-index: 10;
+            }
+            .sidebar ul {
+                flex-direction: row;
+                gap: 8px;
+                align-items: center;
+                justify-content: center;
+            }
+            .nav-link {
+                width: auto;
+                font-size: 0.9em;
+                padding: 8px 8px;
+                margin-left: 0;
+                border-radius: 18px;
+            }
+            .logo-top-left {
+                position: static;
+                margin: 0 auto 8px auto;
+                display: block;
+            }
+            .logo {
+                width: 80px;
+                padding: 2px;
+            }
+            .logo-large {
+                width: 80px;
+                padding: 2px;
+            }
+            .container {
+                margin-top: 24px;
+            }
+            .title {
+                font-size: 1.3em;
+            }
+            .about {
+                max-width: 99vw;
+                padding: 8px 2px;
+                font-size: 0.95em;
+            }
+            .about h2 {
+                font-size: 1.2em;
+            }
+            .about .mission {
+                font-size: 1em;
+            }
+            .tagline {
+                font-size: 1em;
+            }
+        }
     </style>
 </head>
 <body>
@@ -198,7 +288,7 @@
         <ul>
             <li><a class="nav-link" href="mailto:timelesstreasurebox25@gmail.com">Contact Us</a></li>
             <li><a class="nav-link" href="https://poshmark.com/closet/timelesstbox" target="_blank">Poshmark</a></li>
-            <li><a class="nav-link" href="https://www.ebay.com/str/timelesstreasurebox" target="_blank">eBay Store</a></li>
+            <li><a class="nav-link" href="https://www.ebay.com/usr/timelesstbox" target="_blank">eBay Store</a></li>
             <li><a class="nav-link" href="https://www.etsy.com/shop/TimelesstBox" target="_blank">Etsy</a></li>
             <li><a class="nav-link" href="#" id="aboutNav">About Us</a></li>
         </ul>
