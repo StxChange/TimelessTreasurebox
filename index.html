@@ -221,30 +221,46 @@
         }
         @media (max-width: 600px) {
             .sidebar {
-                position: static;
+                position: fixed;
+                top: 0;
+                left: 0;
                 width: 100vw;
-                height: auto;
+                height: 56px;
                 flex-direction: row;
-                box-shadow: none;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.18);
                 background: rgba(85, 75, 131, 0.98);
-                z-index: 10;
+                z-index: 100;
+                align-items: center;
+                justify-content: center;
+                padding: 0;
             }
             .sidebar ul {
                 flex-direction: row;
                 gap: 8px;
                 align-items: center;
                 justify-content: center;
+                width: 100vw;
+                margin: 0;
+                padding: 0;
+            }
+            .sidebar li {
+                width: auto;
             }
             .nav-link {
                 width: auto;
-                font-size: 0.9em;
-                padding: 8px 8px;
+                font-size: 1em;
+                padding: 12px 10px;
                 margin-left: 0;
                 border-radius: 18px;
+                min-width: 60px;
+                text-align: center;
             }
             .logo-top-left {
-                position: static;
-                margin: 0 auto 8px auto;
+                position: absolute;
+                top: 64px;
+                left: 12px;
+                z-index: 101;
+                margin: 0;
                 display: block;
             }
             .logo {
@@ -256,7 +272,7 @@
                 padding: 2px;
             }
             .container {
-                margin-top: 24px;
+                margin-top: 80px;
             }
             .title {
                 font-size: 1.3em;
