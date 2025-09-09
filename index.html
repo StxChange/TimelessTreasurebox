@@ -39,15 +39,16 @@
             left: 50%;
             transform: translate(-50%, -50%);
             text-align: center;
-            color: #fff;
+            color: #fff
             z-index: 1;
         }
         .title {
             font-size: 4.2em;
             margin-bottom: 20px;
-            letter-spacing: 4px;
-            font-family: 'Tangerine', cursive; 
-            text-shadow: 0 4px 24px rgba(226,177,60,0.25), 0 1px 0 #fff;
+            letter-spacing: 5px;
+            font-family: 'Great Vibes', cursive; 
+            color: #d8dee4;
+            text-shadow: 0 4px 24px rgba(226,177,60,0.25), 0 1px 0 #cad9e4;
             animation: fancyTitleIn 2.2s cubic-bezier(0.23, 1, 0.32, 1) forwards;
             opacity: 0;
         }
@@ -161,11 +162,12 @@
         .tagline {
             font-size: 1.6em;
             color: #e7daaf;
-            margin-top: 10px;
-            margin-bottom: 30px;
-            font-style: italic;
-            font-weight: bold;
-        }
+            height: 100vh;
+            margin-top: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         .about {
             max-width: 700px;
             margin: 48px auto 0 auto;
@@ -315,7 +317,7 @@
     <div class="title" style="font-family: 'Tangerine', cursive;"></div>
     </div>
     <div class="container">
-        <h1 class="title" id="mainTitle">Welcome to Timeless Treasure Box</h1>
+        <h1 class="title" id="mainTitle">Timeless Treasure Box</h1>
         <p class="tagline">✨ Sparkle, style, and surprises — delivered ✨</p>
     </div>
     <section class="about" id="aboutSection" style="display:none;">
