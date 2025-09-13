@@ -308,13 +308,7 @@
     <li><a class="nav-link" href="https://poshmark.com/closet/timelesstbox" target="_blank">Poshmark</a></li>
     <li><a class="nav-link" href="https://www.ebay.com/str/timelesstreasurebox25" target="_blank">eBay</a></li>
     <li><a class="nav-link" href="https://www.etsy.com/shop/TimelesstBox" target="_blank">Etsy</a></li>
-    <li>
-      <a href="#"
-         class="nav-link"
-         onclick="window.open('TTB_video01.mp4', '_blank', 'width=800,height=600'); return false;">
-         Promo Video
-      </a>
-    </li>
+    <li><a href="#" class="nav-link" onclick="openVideo(); return false;">Promo Video</a></li>
     <li><a class="nav-link" href="#" id="aboutNav">About</a></li>
   </ul>
 </nav>
@@ -371,6 +365,23 @@ closeAbout.addEventListener('click', (e) => {
     aboutSection.style.display = 'none';
     mainTitle.style.display = '';
 });
+
+// Open video in new window
+function openVideo() {
+  const videoWindow = window.open("", "_blank", "width=800,height=600");
+  videoWindow.document.write(`
+    <html>
+      <head><title>Promo Video</title></head>
+      <body style="margin:0; display:flex; justify-content:center; align-items:center; background:#000;">
+        <video width="100%" height="100%" controls autoplay>
+          <source src="TTB_video01.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </body>
+    </html>
+  `);
+}
+
 </script>
 </body>
 </html>
