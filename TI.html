@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Tiny Island Cocktails - Bracelet Promo</title>
+  <style>
+    /* Color variables inspired by tinyislandcocktails.com (teal/coral palette) */
+    :root{
+      --bg: #f6fbfa; /* very light aqua */
+      --teal: #0fb1a6; /* primary teal */
+      --dark-teal: #0b8f81;
+      --coral: #ff6b5f; /* accent coral */
+      --gold: #e6c77a;
+      --muted: #58656b;
+      --card-bg: #ffffff;
+      --radius: 14px;
+      --max-width: 1100px;
+      --gap: 18px;
+      --shadow: 0 6px 18px rgba(11,143,129,0.08);
+    }
+    html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial}
+    body{background:linear-gradient(180deg,var(--bg),#ffffff);color:#0b2b2a}
+    .wrap{max-width:var(--max-width);margin:28px auto;padding:20px}
+    header{display:flex;align-items:center;gap:16px}
+    .logo{width:86px;height:86px;border-radius:10px;background:var(--teal);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;box-shadow:var(--shadow)}
+    h1{font-size:1.9rem;margin:0;color:var(--dark-teal)}
+    p.lead{color:var(--muted);margin:8px 0 20px}
+
+  .hero{display:grid;grid-template-columns:1fr;gap:20px;align-items:center}
+  .promo-card{background:var(--card-bg);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
+  .promo-card img{width:100%;height:auto;display:block;border-radius:10px}
+
+  .gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+  .product{border-radius:12px;overflow:hidden;background:#fff;display:flex;flex-direction:column}
+  .product img{width:100%;height:auto;display:block;max-width:100%}
+    .product .info{padding:12px}
+    .price{font-size:1.1rem;font-weight:700;color:var(--dark-teal)}
+
+    .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px}
+    .btn{background:var(--teal);color:#fff;padding:10px 16px;border-radius:10px;text-decoration:none;font-weight:700;box-shadow:0 6px 18px rgba(15,177,166,0.12)}
+    .btn.secondary{background:transparent;color:var(--dark-teal);border:2px solid var(--dark-teal)}
+
+    .features{display:flex;gap:12px;margin-top:18px;flex-wrap:wrap}
+    .feature{background:linear-gradient(180deg,#fff,#fbfffe);padding:12px;border-radius:12px;flex:1;min-width:220px;box-shadow:var(--shadow)}
+
+  /* Men's section */
+  .men-section{background:var(--card-bg);border-radius:12px;padding:16px;box-shadow:var(--shadow);display:grid;grid-template-columns:1fr 140px;gap:12px;align-items:center}
+  .men-section img{width:100%;height:auto;display:block;border-radius:10px}
+
+    footer{text-align:center;color:var(--muted);margin-top:26px;font-size:0.95rem}
+
+    /* responsive */
+    @media (max-width:900px){
+      .gallery{grid-template-columns:1fr}
+      .hero{grid-template-columns:1fr}
+      h1{font-size:1.6rem}
+    }
+
+    @media (min-width:901px){
+      .hero{grid-template-columns:380px 1fr}
+    }
+
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="logo">TIC</div>
+      <div>
+        <h1>Tiny Island Cocktails — Bracelet Promo</h1>
+        <p class="lead">Limited-time swag: handcrafted bracelets for the Tiny Island Cocktails promotional event. Grab yours while supplies last.</p>
+      </div>
+    </header>
+
+    <!-- Cans banner moved into the left sidebar (aside) below -->
+
+    <main class="hero" role="main">
+      <aside class="promo-card" aria-hidden="false">
+        <div style="overflow:hidden;">
+          <img src="TI_images/TICans.webp" alt="Tiny Island Cans">
+        </div>
+      </aside>
+
+      <section>
+        <!-- Promo video moved above the products -->
+        <div style="margin-bottom:18px;">
+          <div style="border-radius:12px;overflow:hidden;box-shadow:var(--shadow);background:#000;max-width:100%">
+            <video autoplay muted loop playsinline width="100%" poster="TI_images/IMG_1259.JPG">
+              <source src="TI_images/WNND4080.MP4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+
+        <div id="shop" class="gallery">
+          <!-- Palette: Mojito (blue/green) -->
+          <article class="product">
+            <img src="TI_images/IMG_1259.JPG" alt="Mojito Bracelet">
+            <div class="info">
+              <div style="font-weight:700">Mojito — Fresh Mint</div>
+              <p style="margin:8px 0;color:var(--muted)">Cool blue tones inspired by the Mojito can.</p>
+              
+            </div>
+          </article>
+
+          <!-- Palette: Daiquiri (coral) -->
+          <article class="product">
+            <img src="TI_images/IMG_1260.JPG" alt="Daiquiri Bracelet">
+            <div class="info">
+              <div style="font-weight:700">Daiquiri — Zesty Breeze</div>
+              <p style="margin:8px 0;color:var(--muted)">Cool green tones inspired matching the Daiquiri can.</p>
+              
+            </div>
+          </article>
+
+          <!-- Palette: Mai Tai (gold) -->
+          <article class="product">
+            <img src="TI_images/IMG_1261.JPG" alt="Mai Tai Bracelet">
+            <div class="info">
+              <div style="font-weight:700">Mai Tai — Golden Hour</div>
+              <p style="margin:8px 0;color:var(--muted)">Warm golden tones to match the Mai Tai can.</p>
+              
+            </div>
+          </article>
+
+          <!-- Palette: Hurricane (red) -->
+          <article class="product">
+            <img src="TI_images/IMG_E1262.JPG" alt="Hurricane Bracelet">
+            <div class="info">
+              <div style="font-weight:700">Hurricane — Red Storm, Bold Flavor</div>
+              <p style="margin:8px 0;color:var(--muted)">Vibrant red tones inspired by the Hurricane can.</p>
+              
+            </div>
+          </article>
+        </div>
+
+        <!-- Promo video from TI_images -->
+        <div style="margin-top:18px;">
+          <h3 style="color:var(--dark-teal);margin-bottom:8px">Glass and stone beaded brackelets</h3>
+          <div style="border-radius:12px;overflow:hidden;box-shadow:var(--shadow);background:#000;max-width:720px">
+            <video controls width="100%" poster="TI_images/IMG_1266.JPG">
+              <source src="TI_images/WNND4080.MP4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+
+        <section id="learn" style="margin-top:18px">
+          <h3 style="color:var(--dark-teal)">Why these bracelets?</h3>
+          <p style="color:var(--muted)">Each bracelet is made with care — these make perfect event swag or gifts for attendees. The bracklet will promote the brand and the flavor and have a QR always available to order the product.</p>
+        </section>
+        
+        <!-- Men's bracelets section -->
+        <div style="margin-top:20px">
+          <div class="men-section">
+            <div>
+              <h3 style="margin:0;color:var(--dark-teal)">Men's Bracelets — Bold & Earthy</h3>
+              <p style="color:var(--muted);margin-top:8px">Handcrafted glass and stone beaded bracelets sized for men — rugged, stylish, and perfect for promoting with the QR code.</p>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px;align-items:center">
+              <img src="TI_images/IMG_1263.JPG" alt="Men's bracelets" style="width:120px;height:auto;object-fit:cover;border-radius:8px">
+            </div>
+          </div>
+        </div>
+  </section>
+    </main>
+
+    <footer>
+      <p>© Timeless Treasure Box — <a href="https://timelesstreasurebox.com" style="color:var(--teal);text-decoration:none">TimelessTreasureBox.com</a></p>
+    </footer>
+  </div>
+</body>
+</html>
