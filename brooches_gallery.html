@@ -1,0 +1,525 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Brooches Gallery</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 20px;
+                background-color: #f4f4f4;
+            }
+            .container {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-around;
+            }
+            .product-card {
+                display: grid;
+                grid-template-rows: auto auto auto; /* Four rows */
+                align-items: center;
+                justify-items: center;
+                border: 1px solid #ddd;
+                border-radius: 8px;
+                background-color: #fff;
+                margin: 15px;
+                padding: 10px;
+                width: 280px;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+                text-align: center;
+            }
+                        
+            .product-card h4 {
+                grid-row: 1; /* First row: Item number */
+                margin: 10px 0;
+            }
+            .product-card img {
+                grid-row: 2; /* Second row: Image */
+                max-width: 100%;
+                height: auto;
+                cursor: pointer;
+                margin: 10px 0;
+            }
+            
+            .product-card p strong {
+                grid-row: 3; /* Third row: Price */
+                font-size: 1.1em;
+                margin: 10px 0;
+            }
+            .product-card h4, .product-card p {
+                margin: 10px 0;
+            }
+            /* Modal */
+            .modal {
+                display: none;
+                position: fixed;
+                z-index: 1;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                overflow: auto;
+                background-color: rgba(0, 0, 0, 0.9);
+            }
+            .modal-content {
+                margin: 10% auto;
+                display: block;
+                max-width: 700px;
+            }
+            .modal-content img {
+                width: 100%;
+                height: auto;
+            }
+            .close {
+                position: absolute;
+                top: 20px;
+                right: 35px;
+                color: #fff;
+                font-size: 40px;
+                font-weight: bold;
+                cursor: pointer;
+            }
+            @media screen and (max-width: 768px) {
+                .product-card {
+                    width: 100%;
+                }
+            }
+            /* Cart UI */
+            .cart-controls {
+                display: flex;
+                gap: 8px;
+                align-items: center;
+                margin: 12px 0 18px 0;
+            }
+            .cart-controls input[type="email"] {
+                padding: 6px 8px;
+                border-radius: 4px;
+                border: 1px solid #ccc;
+            }
+            .btn {
+                background: #0078d4;
+                color: #fff;
+                border: none;
+                padding: 6px 10px;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+            .btn.secondary { background: #555; }
+            .cart-panel {
+                position: fixed;
+                right: 20px;
+                top: 80px;
+                width: 320px;
+                max-height: 70vh;
+                overflow: auto;
+                background: #fff;
+                border: 1px solid #ddd;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+                padding: 12px;
+                border-radius: 8px;
+                z-index: 9999;
+            }
+            .cart-header { font-weight: bold; margin-bottom: 8px; }
+            .cart-item { display:flex; gap:8px; align-items:center; margin-bottom:8px; }
+            .cart-item img { width:48px; height:48px; object-fit:cover; border-radius:4px; }
+            .cart-item .meta { flex:1; font-size:13px; }
+            .cart-item .actions { display:flex; gap:6px; align-items:center; }
+            .small { font-size:12px; padding:4px 6px; }
+        </style>
+    </head>
+    <body>
+
+    <h1>Brooches Gallery</h1>
+    <div class="cart-controls">
+        <label for="cust-email">Email:</label>
+        <input id="cust-email" type="email" placeholder="you@example.com">
+        <button id="load-cart" class="btn small">Load Cart</button>
+        <button id="save-cart" class="btn small">Save Cart</button>
+        <button id="clear-cart" class="btn small secondary">Clear</button>
+        <button id="toggle-cart" class="btn small">Show Cart</button>
+    </div>
+    <div class="container">
+    
+        <div class="product-card">
+            <h4>BO8- 29</h4>
+            <p>20 round diamonds for a total weight of 0.50 carat, 1 round ruby is 0.10 carat, blue and green enamel, 18KYG</p>
+            <p><strong>Price: $2200</strong></p>
+            <img src="https://raw.githubusercontent.com/StxChange/Images/main/BO8- 29 sailfish enamel & dia.JPG" alt="BO8- 29" onclick="openModal(this.src)">
+        </div>
+    
+        <div class="product-card">
+            <h4>BO8- 31</h4>
+            <p>1 round sapphire, 3dwt, 18KYG</p>
+            <p><strong>Price: $140</strong></p>
+            <img src="https://raw.githubusercontent.com/StxChange/Images/main/BO8- 31  G dolphin.jpg" alt="BO8- 31" onclick="openModal(this.src)">
+        </div>
+    
+        <div class="product-card">
+            <h4>BO8- 33</h4>
+            <p>1 oval cabochon aquamarine is 15.00 carat,  8.2dwt, 18KYG</p>
+            <p><strong>Price: $1300</strong></p>
+            <img src="https://raw.githubusercontent.com/StxChange/Images/main/BO8- 33  G fish w aquamarine.JPG" alt="BO8- 33" onclick="openModal(this.src)">
+        </div>
+    
+        <div class="product-card">
+            <h4>BO8- 42</h4>
+            <p>Round Diamonds have a total weight of 3.20 carat, 10.8dwt, 18KG</p>
+            <p><strong>Price: $5500</strong></p>
+            <img src="https://raw.githubusercontent.com/StxChange/Images/main/BO8- 42   D snail.jpg" alt="BO8- 42" onclick="openModal(this.src)">
+        </div>
+    
+        <div class="product-card">
+            <h4>BO8- 46a</h4>
+            <p>66 round emeralds for a total weight of 1.80 carat, 5dwt,  18KYG</p>
+            <p><strong>Price: $1500</strong></p>
+            <img src="https://raw.githubusercontent.com/StxChange/Images/main/BO8- 46a GS Frog with rd emeralds yg.JPG" alt="BO8- 46a" onclick="openModal(this.src)">
+        </div>
+    
+        <div class="product-card">
+            <h4>BO8- 77</h4>
+            <p>12 round brilliant-cut diamonds weighing a total of 1.02 carat,  6.6dwt, 18KWG</p>
+            <p><strong>Price: $3000</strong></p>
+            <img src="https://raw.githubusercontent.com/StxChange/Images/main/BO8- 77 D flower brooch wg with rd dia.JPG" alt="BO8- 77" onclick="openModal(this.src)">
+        </div>
+    
+        <div class="product-card">
+            <h4>BO8- 79</h4>
+            <p>35 round diamonds for a total weight of 1.20 carat, 1 aquamarine is 5.15 carat, 8.6dwt, 18KYG</p>
+            <p><strong>Price: $3900</strong></p>
+            <img src="https://raw.githubusercontent.com/StxChange/Images/main/BO8- 79  GS aqua & dia long stem.jpg" alt="BO8- 79" onclick="openModal(this.src)">
+        </div>
+    
+        <div class="product-card">
+            <h4>BO8- 85</h4>
+            <p>71 round diamonds for a total weight of 3.05 carat, green enamel, 16dwt, 18KYG</p>
+            <p><strong>Price: $6900</strong></p>
+            <img src="https://raw.githubusercontent.com/StxChange/Images/main/BO8- 85   D lge yw dia leaf w gr enam.jpg" alt="BO8- 85" onclick="openModal(this.src)">
+        </div>
+    
+        <div class="product-card">
+            <h4>BO8- 96</h4>
+            <p>14KWG, 4.2dwt</p>
+            <p><strong>Price: $750</strong></p>
+            <img src="https://raw.githubusercontent.com/StxChange/Images/main/BO8- 96 G golf tie bar yg.JPG" alt="BO8- 96" onclick="openModal(this.src)">
+        </div>
+    
+        <div class="product-card">
+            <h4>BO8- 97</h4>
+            <p>14KWG, 3.2dwt</p>
+            <p><strong>Price: $550</strong></p>
+            <img src="https://raw.githubusercontent.com/StxChange/Images/main/BO8- 97 G golf tie bar yg.JPG" alt="BO8- 97" onclick="openModal(this.src)">
+        </div>
+    
+        <div class="product-card">
+            <h4>BO8- 98</h4>
+            <p>18KYG Tiffany seagull, 2.8dwt</p>
+            <p><strong>Price: $250</strong></p>
+            <img src="https://raw.githubusercontent.com/StxChange/Images/main/BO8- 98 G tiffany seagull yg.JPG" alt="BO8- 98" onclick="openModal(this.src)">
+        </div>
+    
+        <div class="product-card">
+            <h4>HMBO-  3</h4>
+            <p>60 round diamonds for a total weight of 1.50 carat, 11.2dwt, 18KYG</p>
+            <p><strong>Price: $4000</strong></p>
+            <img src="https://raw.githubusercontent.com/StxChange/Images/main/HMBO-  3   D bow dia edged.jpg" alt="HMBO-  3" onclick="openModal(this.src)">
+        </div>
+    
+        <div class="product-card">
+            <h4>HMBO- 31</h4>
+            <p>6 round diamonds for a total weight of 0.30 carat, 2 caboshon sapphires for a total weight of 0.10 carat, South Sea pearl, 6.9dwt, 18KYG</p>
+            <p><strong>Price: $2500</strong></p>
+            <img src="https://raw.githubusercontent.com/StxChange/Images/main/HMBO- 31 P yg fly pearl body with rd dia & sap eyes.JPG" alt="HMBO- 31" onclick="openModal(this.src)">
+        </div>
+    
+        <div class="product-card">
+            <h4>HMBO- 39</h4>
+            <p>6 briolette sapphires for a total weight of 3.94 carat, 87 round diamonds for a total weight of 1.48 carat, 4.8dwt, 18KWG</p>
+            <p><strong>Price: $2100</strong></p>
+            <img src="https://raw.githubusercontent.com/StxChange/Images/main/HMBO- 39 GS rd dia and colored sap.JPG" alt="HMBO- 39" onclick="openModal(this.src)">
+        </div>
+    
+        <div class="product-card">
+            <h4>HMBO- 47</h4>
+            <p>2 round diamonds have a total weight of 0.10 carat total weight, mother of pearl,  1 malachite, 2 lapis lazuli, 12.3dwt, 18KYG</p>
+            <p><strong>Price: $950</strong></p>
+            <img src="https://raw.githubusercontent.com/StxChange/Images/main/HMBO- 47 GS rd dia, lapis lazuli & malachite owl yg.JPG" alt="HMBO- 47" onclick="openModal(this.src)">
+        </div>
+    
+        <div class="product-card">
+            <h4>HMBO- 64</h4>
+            <p>18 round diamonds for a total weight of 1.70 carat,  4dwt, 18KYG</p>
+            <p><strong>Price: $3200</strong></p>
+            <img src="https://raw.githubusercontent.com/StxChange/Images/main/HMBO- 64 Large fly w rd dia.JPG" alt="HMBO- 64" onclick="openModal(this.src)">
+        </div>
+    
+        <div class="product-card">
+            <h4>HMBO- 69</h4>
+            <p>1 oval pearl is 15.5x16mm, 194 round diamonds for a total weight of 1.50 carat,  13.2dwt, 18KYG</p>
+            <p><strong>Price: $3900</strong></p>
+            <img src="https://raw.githubusercontent.com/StxChange/Images/main/HMBO- 69 Flamingo w rd dia&pearl .JPG" alt="HMBO- 69" onclick="openModal(this.src)">
+        </div>
+    
+        <div class="product-card">
+            <h4>HMBO- 72</h4>
+            <p>14KYG, 5.3dwt</p>
+            <p><strong>Price: $550</strong></p>
+            <img src="https://raw.githubusercontent.com/StxChange/Images/main/HMBO- 72 Running dog yg.JPG" alt="HMBO- 72" onclick="openModal(this.src)">
+        </div>
+    
+        <div class="product-card">
+            <h4>HMBO- 74</h4>
+            <p>1 heart-shape cabochon tourmaline is 4 carat, 1 oval cabochon rubelite is 2 carat, 4.5dwt, 14KYG</p>
+            <p><strong>Price: $700</strong></p>
+            <img src="https://raw.githubusercontent.com/StxChange/Images/main/HMBO- 74 GS Tourmaline&rubelite bee yg.JPG" alt="HMBO- 74" onclick="openModal(this.src)">
+        </div>
+    
+        <div class="product-card">
+            <h4>HMBO- 84</h4>
+            <p>Jade, 18KYG, 8.7dwt</p>
+            <p><strong>Price: $1800</strong></p>
+            <img src="https://raw.githubusercontent.com/StxChange/Images/main/HMBO- 84 GS Gold turtle w jade yg.JPG" alt="HMBO- 84" onclick="openModal(this.src)">
+        </div>
+    
+        <div class="product-card">
+            <h4>HMBO- 88</h4>
+            <p>Diamonds have a total weight of 0.70 carat, 18KYG</p>
+            <p><strong>Price: $880</strong></p>
+            <img src="https://raw.githubusercontent.com/StxChange/Images/main/HMBO- 88 D Rabit pin w rd dia yg.JPG" alt="HMBO- 88" onclick="openModal(this.src)">
+        </div>
+    
+        <div class="product-card">
+            <h4>HMBO- 90</h4>
+            <p>Diamonds have a total weight of 0.40 carat, 14KYG</p>
+            <p><strong>Price: $950</strong></p>
+            <img src="https://raw.githubusercontent.com/StxChange/Images/main/HMBO- 90 D Diamond bow w rd dia yg.JPG" alt="HMBO- 90" onclick="openModal(this.src)">
+        </div>
+    
+        <div class="product-card">
+            <h4>HMBO- 91</h4>
+            <p>Diamonds have a total weight of 0.25 carat, 14KYG</p>
+            <p><strong>Price: $650</strong></p>
+            <img src="https://raw.githubusercontent.com/StxChange/Images/main/HMBO- 91 D Rabbit w sapph and dia yg .JPG" alt="HMBO- 91" onclick="openModal(this.src)">
+        </div>
+    
+        <div class="product-card">
+            <h4>HMBO- 93</h4>
+            <p>Diamonds have a total weight of 0.06 carat, Enamel, 18KYG</p>
+            <p><strong>Price: $550</strong></p>
+            <img src="https://raw.githubusercontent.com/StxChange/Images/main/HMBO- 93 G Enameled flower pin yg.JPG" alt="HMBO- 93" onclick="openModal(this.src)">
+        </div>
+    
+        <div class="product-card">
+            <h4>HMBO 95</h4>
+            <p>Mother of Pearl, Turquoise, Ruby, 14KWG</p>
+            <p><strong>Price: $600</strong></p>
+            <img src="https://raw.githubusercontent.com/StxChange/Images/main/HMBO- 95 Bumble bee w mop, turq, ruby wg.JPG" alt="HMBO 95" onclick="openModal(this.src)">
+        </div>
+    
+        <div class="product-card">
+            <h4>HMBO-86</h4>
+            <p>Diamonds have a total weight of 1.85 carat, 18KWG</p>
+            <p><strong>Price: $1950</strong></p>
+            <img src="https://raw.githubusercontent.com/StxChange/Images/main/HMBO- 86 D Antique flower brooch w rd dia wg .jpg" alt="HMBO-86" onclick="openModal(this.src)">
+        </div>
+    
+    </div>
+
+    <!-- Cart Panel -->
+    <div id="cartPanel" class="cart-panel" style="display:none">
+        <div class="cart-header">Shopping Cart</div>
+        <div id="cartItems"></div>
+        <div id="cartTotal" style="margin-top:8px;font-weight:bold"></div>
+        <div style="margin-top:8px;display:flex;gap:8px;justify-content:flex-end">
+            <button id="checkout" class="btn small">Checkout</button>
+        </div>
+    </div>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <div class="modal-content">
+            <img id="modal-img">
+        </div>
+    </div>
+
+    <script>
+        function openModal(src) {
+            document.getElementById('myModal').style.display = "block";
+            document.getElementById('modal-img').src = src;
+        }
+
+        function closeModal() {
+            document.getElementById('myModal').style.display = "none";
+        }
+    </script>
+
+    <script>
+    (function(){
+        const emailInput = document.getElementById('cust-email');
+        const loadBtn = document.getElementById('load-cart');
+        const saveBtn = document.getElementById('save-cart');
+        const clearBtn = document.getElementById('clear-cart');
+        const toggleBtn = document.getElementById('toggle-cart');
+        const cartPanel = document.getElementById('cartPanel');
+        const cartItemsEl = document.getElementById('cartItems');
+        const cartTotalEl = document.getElementById('cartTotal');
+        const checkoutBtn = document.getElementById('checkout');
+
+        let cart = [];
+
+        function formatPrice(p){ return '$' + (Number(p)||0).toLocaleString(); }
+
+        function readProduct(card){
+            const title = (card.querySelector('h4')||{textContent:''}).textContent.trim();
+            const desc = (card.querySelector('p')||{textContent:''}).textContent.trim();
+            const priceText = (card.querySelector('p strong')||{textContent:''}).textContent || '';
+            const price = Number((priceText.match(/\$?([0-9,]+(\.[0-9]+)?)/)||[])[1]?.replace(/,/g,'') || 0);
+            const img = (card.querySelector('img')||{}).src || '';
+            return { id: title, title, desc, price, img };
+        }
+
+        function renderCart(){
+            cartItemsEl.innerHTML = '';
+            let total = 0;
+            cart.forEach((item, idx)=>{
+                total += Number(item.price||0);
+                const div = document.createElement('div');
+                div.className = 'cart-item';
+                div.innerHTML = `
+                    <img src="${item.img}" alt="">
+                    <div class="meta">
+                        <div>${item.title}</div>
+                        <div class="small">${formatPrice(item.price)}</div>
+                    </div>
+                    <div class="actions">
+                        <button class="btn small" data-idx="${idx}" data-action="remove">Remove</button>
+                    </div>
+                `;
+                cartItemsEl.appendChild(div);
+            });
+            cartTotalEl.textContent = 'Total: ' + formatPrice(total);
+        }
+
+        function saveCartForEmail(email){
+            if(!email) return alert('Please enter an email to save the cart.');
+            try{
+                const key = 'timelesstreasurebox_cart__' + email.toLowerCase();
+                localStorage.setItem(key, JSON.stringify(cart));
+                localStorage.setItem('timelesstreasurebox_last_email', email.toLowerCase());
+                alert('Cart saved for: ' + email);
+            }catch(e){ console.error(e); alert('Could not save cart.'); }
+        }
+
+        function loadCartForEmail(email){
+            if(!email) return alert('Please enter an email to load the cart.');
+            try{
+                const key = 'timelesstreasurebox_cart__' + email.toLowerCase();
+                const raw = localStorage.getItem(key);
+                cart = raw ? JSON.parse(raw) : [];
+                renderCart();
+                alert('Cart loaded for: ' + email + ' (items: ' + cart.length + ')');
+            }catch(e){ console.error(e); alert('Could not load cart.'); }
+        }
+
+        function attachAddButtons(){
+            const cards = Array.from(document.querySelectorAll('.product-card'));
+            cards.forEach(card=>{
+                if(card.querySelector('.add-to-cart')) return;
+                const btn = document.createElement('button');
+                btn.className = 'btn add-to-cart small';
+                btn.textContent = 'Add to Cart';
+                btn.addEventListener('click', ()=>{
+                    const p = readProduct(card);
+                    cart.push(p);
+                    renderCart();
+                });
+                const priceStrong = card.querySelector('p strong');
+                if(priceStrong && priceStrong.parentElement){
+                    const priceP = priceStrong.parentElement;
+                    const addWrap = document.createElement('div');
+                    addWrap.className = 'add-area';
+                    addWrap.style.marginTop = '8px';
+                    addWrap.appendChild(btn);
+                    priceP.parentNode.insertBefore(addWrap, priceP.nextSibling);
+                } else {
+                    card.appendChild(btn);
+                }
+            });
+        }
+
+        cartItemsEl.addEventListener('click', function(e){
+            const btn = e.target.closest('button[data-action]');
+            if(!btn) return;
+            const idx = Number(btn.dataset.idx);
+            if(btn.dataset.action === 'remove'){
+                cart.splice(idx,1);
+                renderCart();
+            }
+        });
+
+        saveBtn.addEventListener('click', ()=> saveCartForEmail(emailInput.value.trim()));
+        loadBtn.addEventListener('click', ()=> loadCartForEmail(emailInput.value.trim()));
+        clearBtn.addEventListener('click', ()=>{ cart = []; renderCart(); });
+        toggleBtn.addEventListener('click', ()=>{ cartPanel.style.display = cartPanel.style.display === 'none' ? 'block' : 'none'; toggleBtn.textContent = cartPanel.style.display === 'none' ? 'Show Cart' : 'Hide Cart'; });
+
+        checkoutBtn.addEventListener('click', async ()=>{
+            const custEmail = emailInput.value.trim();
+            if(!custEmail) return alert('Please enter your email before checking out.');
+            if(!cart || cart.length === 0) return alert('Your cart is empty. Add items before checkout.');
+
+            let total = 0;
+            const lines = [];
+            lines.push('New order from TimelessTreasureBox website');
+            lines.push('Customer email: ' + custEmail);
+            lines.push('');
+            lines.push('Items:');
+            cart.forEach((it, i) => {
+                total += Number(it.price || 0);
+                lines.push((i+1) + '. ' + (it.title || 'Unnamed product'));
+                if(it.desc) lines.push('   Description: ' + it.desc);
+                lines.push('   Price: ' + (it.price ? ('$' + Number(it.price).toLocaleString()) : 'N/A'));
+                if(it.img) lines.push('   Image: ' + it.img);
+                lines.push('');
+            });
+            lines.push('Total: ' + ('$' + Number(total).toLocaleString()));
+            lines.push('');
+            lines.push('Please contact the customer to confirm and complete the order.');
+
+            const body = lines.join('\n');
+            const subject = 'New order from ' + custEmail + ' (TimelessTreasureBox)';
+            const mailto = 'mailto:timelesstreasurebox25@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+
+            try{
+                if(mailto.length > 1900 && navigator.clipboard){
+                    await navigator.clipboard.writeText(body);
+                    alert('Order body copied to clipboard. Your email client will open — if the email body is truncated, paste the full order from your clipboard.');
+                }
+            }catch(e){ }
+
+            window.location.href = mailto;
+        });
+
+        attachAddButtons();
+        renderCart();
+
+        const last = localStorage.getItem('timelesstreasurebox_last_email');
+        if(!emailInput.value.trim() && last){
+            emailInput.value = last;
+            loadCartForEmail(last);
+        }
+
+        emailInput.addEventListener('blur', ()=>{
+            const v = emailInput.value.trim();
+            if(v) loadCartForEmail(v);
+        });
+
+        window._vb_cart = { get: ()=>cart, save: saveCartForEmail, load: loadCartForEmail };
+    })();
+    </script>
+
+    </body>
+    </html>
+    

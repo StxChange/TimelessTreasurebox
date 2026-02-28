@@ -181,6 +181,76 @@
             font-style: italic;
             font-weight: bold;
         }
+        /* Coming Soon Store Banner */
+        .store-teaser {
+            margin: 28px auto 0 auto;
+            max-width: 580px;
+            background: linear-gradient(135deg, rgba(90,61,138,0.92) 0%, rgba(50,30,90,0.96) 100%);
+            border: 2px solid #e6d8ad;
+            border-radius: 20px;
+            padding: 28px 32px 22px 32px;
+            box-shadow: 0 4px 32px rgba(90,61,138,0.45), 0 0 0 4px rgba(230,216,173,0.10);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .store-teaser::before {
+            content: "";
+            position: absolute;
+            top: -40px; right: -40px;
+            width: 160px; height: 160px;
+            background: radial-gradient(circle, rgba(230,216,173,0.18) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .store-teaser .coming-soon-label {
+            display: inline-block;
+            background: #e6d8ad;
+            color: #5a3d8a;
+            font-weight: 800;
+            font-size: 0.82em;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            border-radius: 20px;
+            padding: 4px 16px;
+            margin-bottom: 12px;
+        }
+        .store-teaser h3 {
+            color: #fff;
+            font-size: 1.55em;
+            margin: 0 0 8px 0;
+            font-family: 'Tangerine', cursive;
+            font-size: 2.4em;
+            line-height: 1.1;
+        }
+        .store-teaser p {
+            color: #e6d8ad;
+            font-size: 1em;
+            margin: 0 0 18px 0;
+            line-height: 1.5;
+        }
+        .store-teaser .preview-btn {
+            display: inline-block;
+            background: #e6d8ad;
+            color: #5a3d8a;
+            font-weight: 800;
+            font-size: 1.05em;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.22);
+            transition: background 0.2s, color 0.2s, transform 0.2s;
+            letter-spacing: 0.5px;
+        }
+        .store-teaser .preview-btn:hover {
+            background: #fff;
+            color: #3d1f7a;
+            transform: scale(1.06);
+        }
+        @keyframes storeTeaserGlow {
+            0%, 100% { box-shadow: 0 4px 32px rgba(90,61,138,0.45), 0 0 0 4px rgba(230,216,173,0.10); }
+            50% { box-shadow: 0 4px 48px rgba(90,61,138,0.7), 0 0 0 6px rgba(230,216,173,0.22); }
+        }
+        .store-teaser { animation: storeTeaserGlow 4s ease-in-out infinite; }
         /* gentle pulse for attention (text scale + drop shadow) */
         @keyframes gentlePulse {
             0% { transform: scale(1); filter: drop-shadow(0 0 0 rgba(90,61,138,0)); }
@@ -396,6 +466,15 @@
                                         </a>
                                 </div>
     </div>
+
+    <!-- Online Store Coming Soon Teaser -->
+    <div class="store-teaser">
+        <div class="coming-soon-label">Coming Soon</div>
+        <h3>Timeless Treasure Box Online Store</h3>
+        <p>Our full online shop is almost here — packed with jewelry, accessories, vintage collectibles, and treasures you won't find anywhere else. Be the first to explore!</p>
+        <a href="indexshop.html" class="preview-btn">Sneak Preview &mdash; Click Here!</a>
+    </div>
+
     <section class="about" id="aboutSection" style="display:none;">
     <button id="closeAbout" style="position:absolute;top:12px;right:18px;background:transparent;border:none;font-size:2em;color:#e6d8ad;cursor:pointer;z-index:10;">&times;</button>
     <h2>About Us</h2>
