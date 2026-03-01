@@ -1,0 +1,413 @@
+<!-- Branding Guide: Royal Purple (#5a3d8a) with Pale Gold (#e6d8ad) and White (#ffffff) accents -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Timeless Treasure Box — Spotlight</title>
+  <link href="https://fonts.googleapis.com/css2?family=Tangerine&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --purple: #5a3d8a;
+      --dark-purple: #3d1f7a;
+      --gold: #e6d8ad;
+      --gold-bright: #f5e87a;
+      --white: #ffffff;
+      --muted: #c9b8e8;
+      --card-bg: rgba(90,61,138,0.82);
+      --shadow: 0 6px 24px rgba(90,61,138,0.22);
+      --radius: 14px;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; font-family: 'Segoe UI', Inter, system-ui, Arial, sans-serif; }
+    body { background: linear-gradient(160deg, #1a0d30 0%, #2d1a55 60%, #1a0d30 100%); color: #fff; min-height: 100vh; }
+
+    /* ── Top Nav Bar ── */
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(61,31,122,0.95);
+      padding: 12px 24px;
+      border-bottom: 2px solid var(--gold);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .topbar-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--gold);
+    }
+    .topbar-logo img {
+      width: 52px;
+      border-radius: 10px;
+      border: 2px solid var(--gold);
+      background: rgba(255,255,255,0.9);
+      padding: 3px;
+    }
+    .topbar-logo span {
+      font-family: 'Tangerine', cursive;
+      font-size: 1.9em;
+      line-height: 1;
+    }
+    .topbar-back {
+      color: var(--gold);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.95em;
+      border: 2px solid var(--gold);
+      border-radius: 20px;
+      padding: 7px 18px;
+      transition: background 0.2s, color 0.2s;
+    }
+    .topbar-back:hover { background: var(--gold); color: var(--dark-purple); }
+
+    /* ── Page Wrap ── */
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 28px 20px 48px; }
+
+    /* ── Page Title ── */
+    .page-title {
+      text-align: center;
+      font-family: 'Tangerine', cursive;
+      font-size: 4em;
+      color: var(--gold);
+      margin: 0 0 4px 0;
+      text-shadow: 0 2px 16px rgba(230,216,173,0.3);
+    }
+    .page-subtitle {
+      text-align: center;
+      color: var(--muted);
+      font-size: 1em;
+      margin: 0 0 32px 0;
+    }
+
+    /* ── Section Headings ── */
+    .section-heading {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--gold), var(--gold-bright));
+      color: var(--dark-purple);
+      font-weight: 800;
+      font-size: 1.1em;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border-radius: 24px;
+      padding: 7px 22px;
+      margin-bottom: 20px;
+    }
+
+    /* ── Hero Video ── */
+    .hero-video-wrap {
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 8px 40px rgba(90,61,138,0.5), 0 0 0 3px var(--gold);
+      background: #000;
+      margin-bottom: 40px;
+    }
+    .hero-video-wrap video { display: block; width: 100%; max-height: 520px; object-fit: cover; }
+
+    /* ── Events Section ── */
+    .events-section { margin-bottom: 48px; }
+    .event-banner {
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      margin-bottom: 20px;
+      border: 2px solid rgba(230,216,173,0.25);
+    }
+    .event-banner img { display: block; width: 100%; height: auto; }
+    .events-grid { display: grid; gap: 18px; }
+    .event-card {
+      background: var(--card-bg);
+      border: 1px solid rgba(230,216,173,0.25);
+      border-radius: var(--radius);
+      padding: 20px;
+      box-shadow: var(--shadow);
+    }
+    .event-card h3 { margin: 0 0 6px 0; color: var(--gold); font-size: 1.2em; }
+    .event-when { color: var(--muted); margin: 4px 0; font-size: 0.95em; }
+    .event-where { font-weight: 700; color: var(--gold-bright); margin: 6px 0 10px; font-size: 0.95em; }
+    .event-desc { color: #d8cef0; margin: 0 0 12px; line-height: 1.5; font-size: 0.95em; }
+    .event-card img {
+      width: 100%;
+      max-width: 420px;
+      height: auto;
+      border-radius: 10px;
+      display: block;
+      margin-top: 12px;
+      border: 2px solid rgba(230,216,173,0.2);
+    }
+    .event-link { color: var(--gold); text-decoration: none; font-weight: 700; font-size: 0.92em; }
+    .event-link:hover { text-decoration: underline; }
+
+    /* ── TI Section ── */
+    .ti-section { margin-bottom: 48px; }
+    .ti-hero {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      align-items: start;
+      margin-bottom: 24px;
+    }
+    @media (min-width: 760px) {
+      .ti-hero { grid-template-columns: 320px 1fr; }
+    }
+    .ti-can-card {
+      background: var(--card-bg);
+      border: 1px solid rgba(230,216,173,0.25);
+      border-radius: var(--radius);
+      padding: 16px;
+      box-shadow: var(--shadow);
+    }
+    .ti-can-card img { width: 100%; height: auto; display: block; border-radius: 10px; }
+    .ti-content-col { display: flex; flex-direction: column; gap: 18px; }
+    .ti-video-wrap {
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      background: #000;
+      border: 2px solid rgba(230,216,173,0.2);
+    }
+    .ti-video-wrap video { display: block; width: 100%; }
+
+    /* Product Gallery */
+    .gallery { display: grid; grid-template-columns: repeat(2,1fr); gap: 14px; }
+    @media (max-width: 500px) { .gallery { grid-template-columns: 1fr; } }
+    .product-card {
+      border-radius: 12px;
+      overflow: hidden;
+      background: var(--card-bg);
+      border: 1px solid rgba(230,216,173,0.2);
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+    }
+    .product-card img { width: 100%; height: auto; display: block; }
+    .product-info { padding: 12px; }
+    .product-name { font-weight: 700; color: var(--gold); margin-bottom: 4px; }
+    .product-desc { color: var(--muted); font-size: 0.9em; margin: 0; }
+
+    /* TI Bottom Video */
+    .ti-bottom-video { margin-top: 22px; }
+    .ti-bottom-video h3 { color: var(--gold); margin: 0 0 10px; }
+    .ti-bottom-video-wrap {
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      background: #000;
+      max-width: 720px;
+      border: 2px solid rgba(230,216,173,0.2);
+    }
+    .ti-bottom-video-wrap video { display: block; width: 100%; }
+
+    /* Why / Learn */
+    .ti-why {
+      background: var(--card-bg);
+      border: 1px solid rgba(230,216,173,0.2);
+      border-radius: var(--radius);
+      padding: 18px 22px;
+      box-shadow: var(--shadow);
+      margin-top: 22px;
+    }
+    .ti-why h3 { color: var(--gold); margin: 0 0 8px; }
+    .ti-why p { color: #d8cef0; margin: 0; line-height: 1.6; }
+
+    /* Men's Bracelets */
+    .men-section {
+      background: var(--card-bg);
+      border: 1px solid rgba(230,216,173,0.2);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-columns: 1fr 140px;
+      gap: 14px;
+      align-items: center;
+      margin-top: 22px;
+    }
+    .men-section h3 { color: var(--gold); margin: 0 0 8px; }
+    .men-section p { color: #d8cef0; margin: 0; font-size: 0.95em; line-height: 1.5; }
+    .men-section img { width: 100%; height: auto; border-radius: 10px; display: block; }
+
+    /* QR Tags */
+    .qr-wrap { margin-top: 24px; text-align: center; }
+    .qr-wrap img {
+      display: block;
+      max-width: 420px;
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      border: 2px solid rgba(230,216,173,0.25);
+      margin: 0 auto;
+    }
+
+    /* ── Footer ── */
+    .page-footer {
+      text-align: center;
+      border-top: 1px solid rgba(230,216,173,0.2);
+      margin-top: 40px;
+      padding-top: 24px;
+      color: var(--muted);
+      font-size: 0.95em;
+    }
+    .page-footer a { color: var(--gold); text-decoration: none; }
+    .page-footer a:hover { text-decoration: underline; }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .page-title { font-size: 2.8em; }
+      .men-section { grid-template-columns: 1fr; }
+      .topbar-logo span { font-size: 1.4em; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Nav -->
+  <nav class="topbar">
+    <a class="topbar-logo" href="index.html">
+      <img src="ttblogo.png" alt="Timeless Treasure Box Logo">
+      <span>Timeless Treasure Box</span>
+    </a>
+    <a class="topbar-back" href="index.html">← Home</a>
+  </nav>
+
+  <div class="wrap">
+
+    <h1 class="page-title">✨ Spotlight ✨</h1>
+    <p class="page-subtitle">Events, features, and exclusive promos — all in one place</p>
+
+    <!-- ── Hero Video ── -->
+    <div class="hero-video-wrap">
+      <video autoplay muted loop playsinline controls>
+        <source src="TTB_video01.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+
+    <!-- ── Events Section ── -->
+    <section class="events-section">
+      <div><span class="section-heading">📅 Upcoming Events</span></div>
+
+      <div class="event-banner">
+        <img src="event_images/TimelessTreasureEventSetup.png" alt="Event setup">
+      </div>
+
+      <div class="events-grid">
+        <article class="event-card">
+          <h3>The Rust Market — Holiday Edition</h3>
+          <div class="event-when">Saturday, February 21st — 9:00 AM to 2:00 PM</div>
+          <div class="event-where">The Rust Market, Downtown Venue (check organizer page for exact location)</div>
+          <p class="event-desc">Special holiday collection, limited bracelet drops, and gift bundles. We'll have exclusive items and many to choose from.</p>
+          <img src="event_images/RustMarket.jpg" alt="Rust Market setup">
+          <p style="margin-top:10px"><a class="event-link" href="https://www.instagram.com/therustmarket/?hl=en" target="_blank" rel="noopener noreferrer">More details →</a></p>
+        </article>
+
+        <article class="event-card">
+          <h3>King Stable Farms — Weekend Pop-ups (Every Weekend in December)</h3>
+          <div class="event-when">Fridays, Saturdays &amp; Sundays in December</div>
+          <div class="event-where">King Stable Farms — Outdoor Market Area and Large Christmas Event</div>
+          <p class="event-desc">Weekend markets great for last-minute holiday shopping.</p>
+          <img src="event_images/EventSetup1.JPG" alt="Market setup at King Stable Farms">
+          <p style="margin-top:10px"><a class="event-link" href="https://youfarmco.ticketspice.com/christmas-on-the-farm-2025" target="_blank" rel="noopener noreferrer">See schedule for dates and times →</a></p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ── Tiny Island Cocktails Section ── -->
+    <section class="ti-section">
+      <div><span class="section-heading">🍹 Featured: Tiny Island Cocktails Bracelet Promo</span></div>
+      <p style="color:var(--muted);margin:0 0 20px;font-size:0.97em">Limited-time swag: handcrafted bracelets for the Tiny Island Cocktails promotional event. Grab yours while supplies last.</p>
+
+      <div class="ti-hero">
+        <div class="ti-can-card">
+          <img src="TI_images/TICans.webp" alt="Tiny Island Cocktail Cans">
+        </div>
+
+        <div class="ti-content-col">
+          <!-- Autoplay promo video -->
+          <div class="ti-video-wrap">
+            <video autoplay muted loop playsinline poster="TI_images/IMG_1259.JPG" width="100%">
+              <source src="TI_images/WNND4080.MP4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+
+          <!-- Product gallery -->
+          <div class="gallery">
+            <article class="product-card">
+              <img src="TI_images/IMG_1259.JPG" alt="Mojito Bracelet">
+              <div class="product-info">
+                <div class="product-name">Mojito — Fresh Mint</div>
+                <p class="product-desc">Cool blue tones inspired by the Mojito can.</p>
+              </div>
+            </article>
+            <article class="product-card">
+              <img src="TI_images/IMG_1260.JPG" alt="Daiquiri Bracelet">
+              <div class="product-info">
+                <div class="product-name">Daiquiri — Zesty Breeze</div>
+                <p class="product-desc">Cool green tones inspired by the Daiquiri can.</p>
+              </div>
+            </article>
+            <article class="product-card">
+              <img src="TI_images/IMG_1261.JPG" alt="Mai Tai Bracelet">
+              <div class="product-info">
+                <div class="product-name">Mai Tai — Golden Hour</div>
+                <p class="product-desc">Warm golden tones to match the Mai Tai can.</p>
+              </div>
+            </article>
+            <article class="product-card">
+              <img src="TI_images/IMG_E1262.JPG" alt="Hurricane Bracelet">
+              <div class="product-info">
+                <div class="product-name">Hurricane — Red Storm, Bold Flavor</div>
+                <p class="product-desc">Vibrant red tones inspired by the Hurricane can.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom video with controls -->
+      <div class="ti-bottom-video">
+        <h3>Glass and stone beaded bracelets</h3>
+        <div class="ti-bottom-video-wrap">
+          <video controls poster="TI_images/IMG_1266.JPG" width="100%">
+            <source src="TI_images/WNND4080.MP4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      <!-- Why these bracelets -->
+      <div class="ti-why">
+        <h3>Why these bracelets?</h3>
+        <p>Each bracelet is made with care — these make perfect event swag or gifts for attendees. The bracelet will promote the brand, the flavor and have a QR always available to order the product.</p>
+      </div>
+
+      <!-- Men's bracelets -->
+      <div class="men-section">
+        <div>
+          <h3>Men's Bracelets — Bold &amp; Earthy</h3>
+          <p>Handcrafted glass and stone beaded bracelets sized for men — rugged, stylish, and perfect for promoting with the QR code.</p>
+        </div>
+        <img src="TI_images/IMG_1263.JPG" alt="Men's bracelets">
+      </div>
+
+      <!-- QR Tags -->
+      <div class="qr-wrap">
+        <img src="TI_images/qrtags.png" alt="QR Tags">
+      </div>
+    </section>
+
+    <footer class="page-footer">
+      <p>Questions? Email <a href="mailto:timelesstreasurebox25@gmail.com">timelesstreasurebox25@gmail.com</a></p>
+      <p style="margin-top:8px">Follow our socials for live updates and surprise pop-up announcements.</p>
+      <p style="margin-top:8px">© Timeless Treasure Box — <a href="index.html">TimelessTreasureBox.com</a></p>
+    </footer>
+
+  </div>
+</body>
+</html>
