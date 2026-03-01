@@ -321,6 +321,9 @@
             font-weight: bold;
             text-align: center;
         }
+        .nav-email { line-height: 1.3; }
+        .email-mobile { display: none; }
+        .email-desktop { display: inline; }
         /* Responsive Design */
         @media (max-width: 900px) {
             .sidebar {
@@ -390,6 +393,8 @@
                
                 text-align: center;
             }
+            .email-desktop { display: none; }
+            .email-mobile { display: inline; }
             .logo-top-left {
                 position: absolute;
                 top: 94px;
@@ -455,7 +460,10 @@
     <li><a class="nav-link" href="events.html">Events</a></li>
     <li><a href="#" class="nav-link" onclick="openVideo(); return false;">Video</a></li>
     <li><a class="nav-link" href="#" id="aboutNav">About</a></li>
-    <li><a class="nav-link" href="mailto:timelesstreasurebox25@gmail.com">Contact Us</a></li>
+    <li><a class="nav-link nav-email" href="mailto:timelesstreasurebox25@gmail.com">
+      <span class="email-desktop">📧 Email Us<br><small style="font-weight:400;font-size:0.72em;letter-spacing:0;opacity:0.85;">timelesstreasurebox25@gmail.com</small></span>
+      <span class="email-mobile">📧 Email</span>
+    </a></li>
   </ul>
 </nav>
 
