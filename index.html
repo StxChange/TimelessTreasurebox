@@ -230,21 +230,27 @@
         }
         .store-teaser .preview-btn {
             display: inline-block;
-            background: #e6d8ad;
-            color: #5a3d8a;
-            font-weight: 800;
-            font-size: 1.05em;
-            padding: 12px 30px;
-            border-radius: 30px;
+            background: linear-gradient(135deg, #e6d8ad 0%, #f5e87a 50%, #e6d8ad 100%);
+            color: #3d1f7a;
+            font-weight: 900;
+            font-size: 1.4em;
+            padding: 18px 52px;
+            border-radius: 40px;
             text-decoration: none;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.22);
-            transition: background 0.2s, color 0.2s, transform 0.2s;
-            letter-spacing: 0.5px;
+            box-shadow: 0 4px 24px rgba(230,216,173,0.55), 0 0 0 3px rgba(230,216,173,0.3);
+            transition: background 0.2s, color 0.2s, transform 0.15s, box-shadow 0.2s;
+            letter-spacing: 1px;
+            animation: btnPulse 2.5s ease-in-out infinite;
         }
         .store-teaser .preview-btn:hover {
-            background: #fff;
+            background: linear-gradient(135deg, #fff 0%, #fffbe0 100%);
             color: #3d1f7a;
-            transform: scale(1.06);
+            transform: scale(1.1);
+            box-shadow: 0 8px 36px rgba(230,216,173,0.8), 0 0 0 5px rgba(230,216,173,0.4);
+        }
+        @keyframes btnPulse {
+            0%, 100% { box-shadow: 0 4px 24px rgba(230,216,173,0.55), 0 0 0 3px rgba(230,216,173,0.3); transform: scale(1); }
+            50% { box-shadow: 0 6px 40px rgba(230,216,173,0.85), 0 0 0 6px rgba(230,216,173,0.5); transform: scale(1.04); }
         }
         @keyframes storeTeaserGlow {
             0%, 100% { box-shadow: 0 4px 32px rgba(90,61,138,0.45), 0 0 0 4px rgba(230,216,173,0.10); }
@@ -443,6 +449,7 @@
   <ul>
     
   <!-- <li><a class="nav-link" href="https://poshmark.com/closet/timelesstbox" target="_blank">Poshmark</a></li>  --> 
+    <li><a class="nav-link" href="indexshop.html" style="background:linear-gradient(135deg,#e6d8ad,#f5e87a);color:#3d1f7a;box-shadow:0 2px 14px rgba(230,216,173,0.5);">🛍️ Shop Now</a></li>
     <li><a class="nav-link" href="https://www.ebay.com/str/timelesstreasurebox25" target="_blank">eBay Store</a></li>
     <li><a class="nav-link" href="https://timelesstreasurebox.com/TI.html" target="_blank">TI</a></li> 
     <li><a class="nav-link" href="events.html">Events</a></li>
@@ -467,12 +474,12 @@
                                 </div>
     </div>
 
-    <!-- Online Store Coming Soon Teaser -->
+    <!-- Online Store Preview Teaser -->
     <div class="store-teaser">
-        <div class="coming-soon-label">Coming Soon</div>
+        <div class="coming-soon-label">✨ Now Open — Preview Mode ✨</div>
         <h3>Timeless Treasure Box Online Store</h3>
-        <p>Our full online shop is almost here — packed with jewelry, accessories, vintage collectibles, and treasures you won't find anywhere else. Be the first to explore!</p>
-        <a href="indexshop.html" class="preview-btn">Sneak Preview &mdash; Click Here!</a>
+        <p>Our online shop is live in preview — jewelry, accessories, vintage collectibles, and treasures you won't find anywhere else. Start shopping today!</p>
+        <a href="indexshop.html" class="preview-btn">🛍️ Shop Now!</a>
     </div>
 
     <section class="about" id="aboutSection" style="display:none;">
