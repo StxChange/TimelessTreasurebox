@@ -299,28 +299,6 @@
             animation-iteration-count: infinite;
             animation-duration: 6s; /* cycle every 6s */
         }
-        .about {
-            max-width: 700px;
-            margin: 48px auto 0 auto;
-            background: rgba(34,34,34,0.85);
-            padding: 32px 28px;
-            border-radius: 18px;
-            color: #fff;
-            box-shadow: 0 2px 16px rgba(0,0,0,0.18);
-            position: relative;
-        }
-        .about h2 {
-            color: #e6d8ad;
-            font-size: 2em;
-            margin-bottom: 18px;
-        }
-        .about .mission {
-            font-size: 1.2em;
-            color: #e6d8ad;
-            margin-top: 18px;
-            font-weight: bold;
-            text-align: center;
-        }
         .page-footer {
             position: fixed;
             bottom: 0;
@@ -365,10 +343,6 @@
             }
             .title {
                 font-size: 2.2em;
-            }
-            .about {
-                max-width: 95vw;
-                padding: 18px 8px;
             }
         }
         @media (max-width: 600px) {
@@ -429,17 +403,6 @@
             .title {
                 font-size: 1.3em;
             }
-            .about {
-                max-width: 99vw;
-                padding: 8px 2px;
-                font-size: 0.95em;
-            }
-            .about h2 {
-                font-size: 1.2em;
-            }
-            .about .mission {
-                font-size: 1em;
-            }
             .tagline {
                 font-size: 1em;
             }
@@ -469,8 +432,6 @@
     <li><a class="nav-link" href="indexshop.html" style="background:linear-gradient(135deg,#e6d8ad,#f5e87a);color:#3d1f7a;box-shadow:0 2px 14px rgba(230,216,173,0.5);">🛍️ Shop Now</a></li>
     <li><a class="nav-link" href="https://www.ebay.com/str/timelesstreasurebox25" target="_blank">eBay Store</a></li>
     <li><a class="nav-link" href="spotlight.html">✨ Spotlight</a></li>
-    <li><a href="#" class="nav-link" onclick="openVideo(); return false;">Video</a></li>
-    <li><a class="nav-link" href="#" id="aboutNav">About</a></li>
   </ul>
 </nav>
 
@@ -497,77 +458,10 @@
                                         </a>
                                 </div>
 
-    <section class="about" id="aboutSection" style="display:none;">
-    <button id="closeAbout" style="position:absolute;top:12px;right:18px;background:transparent;border:none;font-size:2em;color:#e6d8ad;cursor:pointer;z-index:10;">&times;</button>
-    <h2>About Us</h2>
-        <p>
-            At <strong>Timeless Treasure Box</strong>, our carefully curated collection of <strong>bracelets, jewelry, stylish bags, and unique trinkets</strong> is designed 
-            to add a touch of sparkle and individuality to your everyday.
-        </p>
-        <p>
-            Whether you’re treating yourself or surprising someone special, our mission is simple:
-        </p>   <p class="mission">
-            ✨ To deliver joy, beauty, and style — one timeless treasure at a time.
-        </p>
-        <a href="mailto:timelesstreasurebox25@gmail.com" class="nav-link" style="background:#5a3d8a; color:#e6d8ad;">Contact Timeless Treasure Box</a>
-         <p>
-    In addition to timeless jewelry and accessories, View Timeless Treasure Box eBay store for  
-    <strong>vintage Dungeons & Dragons miniatures</strong>, 
-    <strong>Ral Partha pewter figures</strong>, and other 
-    <strong>TSR collectibles</strong> from the golden age of fantasy gaming.
-    Perfect for collectors, gamers, and adventurers alike.
-  </p>
-    </section>
 
     <footer class="page-footer">
         Questions? Email us at <a href="mailto:timelesstreasurebox25@gmail.com">timelesstreasurebox25@gmail.com</a>
     </footer>
 
-    <script>
-// Show About Us on logo hover
-const logo = document.getElementById('ttbLogo');
-const aboutSection = document.getElementById('aboutSection');
-const mainTitle = document.getElementById('mainTitle');
-const closeAbout = document.getElementById('closeAbout');
-
-logo.addEventListener('mouseenter', () => {
-    aboutSection.style.display = 'block';
-    mainTitle.style.display = 'none';
-});
-logo.addEventListener('mouseleave', () => {
-    aboutSection.style.display = 'none';
-    mainTitle.style.display = '';
-});
-// Show About Us on sidebar click
-const aboutNav = document.getElementById('aboutNav');
-aboutNav.addEventListener('click', (e) => {
-    e.preventDefault();
-    aboutSection.style.display = 'block';
-    mainTitle.style.display = 'none';
-});
-// Hide About Us when clicking X
-closeAbout.addEventListener('click', (e) => {
-    e.stopPropagation();
-    aboutSection.style.display = 'none';
-    mainTitle.style.display = '';
-});
-
-// Open video in new window
-function openVideo() {
-  const videoWindow = window.open("", "_blank", "width=800,height=600");
-  videoWindow.document.write(`
-    <html>
-      <head><title>Promo Video</title></head>
-      <body style="margin:0; display:flex; justify-content:center; align-items:center; background:#000;">
-        <video width="100%" height="100%" controls autoplay>
-          <source src="TTB_video01.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-      </body>
-    </html>
-  `);
-}
-
-</script>
 </body>
 </html>
