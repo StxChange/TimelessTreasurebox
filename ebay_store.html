@@ -1,0 +1,468 @@
+<!-- Branding Guide: Royal Purple (#5a3d8a) with Pale Gold (#e6d8ad) and White (#ffffff) accents -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timeless Treasure Box — eBay Store</title>
+    <style>
+        *, *::before, *::after { box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #1a0d30;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+        }
+
+        /* ── Top Bar ── */
+        .topbar {
+            background: rgba(61,31,122,0.97);
+            border-bottom: 2px solid #e6d8ad;
+            padding: 12px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .topbar-title {
+            font-size: 1.5em;
+            font-weight: 800;
+            color: #e6d8ad;
+            letter-spacing: 1px;
+        }
+        .back-link {
+            color: #e6d8ad;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.95em;
+            border: 2px solid #e6d8ad;
+            border-radius: 20px;
+            padding: 7px 18px;
+            transition: background 0.2s, color 0.2s;
+        }
+        .back-link:hover { background: #e6d8ad; color: #3d1f7a; }
+
+        /* ── Page Header ── */
+        .page-header {
+            text-align: center;
+            padding: 32px 20px 16px;
+        }
+        .page-header h1 {
+            font-size: 2em;
+            color: #e6d8ad;
+            margin: 0 0 8px;
+        }
+        .page-header p {
+            color: #c9b8e8;
+            margin: 0;
+            font-size: 1em;
+        }
+        .ebay-store-btn {
+            display: inline-block;
+            margin-top: 14px;
+            background: #e6d8ad;
+            color: #3d1f7a;
+            font-weight: 800;
+            font-size: 0.95em;
+            padding: 10px 24px;
+            border-radius: 24px;
+            text-decoration: none;
+            transition: background 0.2s, transform 0.15s;
+        }
+        .ebay-store-btn:hover { background: #fff; transform: scale(1.04); }
+
+        /* ── Filter Bar ── */
+        .filter-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+            padding: 18px 20px 10px;
+        }
+        .filter-btn {
+            background: rgba(90,61,138,0.5);
+            color: #e6d8ad;
+            border: 2px solid rgba(230,216,173,0.35);
+            padding: 8px 18px;
+            border-radius: 24px;
+            cursor: pointer;
+            font-size: 0.92em;
+            font-weight: 700;
+            transition: background 0.2s, border-color 0.2s, transform 0.15s;
+        }
+        .filter-btn:hover { background: rgba(90,61,138,0.85); transform: scale(1.04); }
+        .filter-btn.active {
+            background: #e6d8ad;
+            color: #3d1f7a;
+            border-color: #e6d8ad;
+        }
+
+        /* ── Product Grid ── */
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 18px;
+            padding: 18px 24px 48px;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        /* ── Product Card ── */
+        .product-card {
+            background: rgba(90,61,138,0.55);
+            border: 1px solid rgba(230,216,173,0.22);
+            border-radius: 14px;
+            padding: 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s;
+        }
+        .product-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 28px rgba(90,61,138,0.5);
+            border-color: rgba(230,216,173,0.55);
+        }
+        .product-card[style*="display:none"] { display: none !important; }
+
+        .category-badge {
+            display: inline-block;
+            font-size: 0.72em;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            border-radius: 12px;
+            padding: 3px 10px;
+            align-self: flex-start;
+        }
+        .badge-bracelets  { background: #5a3d8a; color: #f5e87a; border: 1px solid #f5e87a; }
+        .badge-keychains  { background: #ff6b9d22; color: #ffb3d1; border: 1px solid #ff6b9d66; }
+        .badge-collectibles { background: #1a4a2e; color: #7dffb3; border: 1px solid #3dcc7a55; }
+        .badge-toys       { background: #1a3a5a; color: #7dc4ff; border: 1px solid #4aa0e055; }
+        .badge-giftsets   { background: #4a1a2e; color: #ffb3c6; border: 1px solid #cc3d6655; }
+        .badge-clothing   { background: #2a2a1a; color: #e8e07d; border: 1px solid #a0a03d55; }
+
+        .product-card h4 {
+            margin: 0;
+            font-size: 0.98em;
+            color: #fff;
+            line-height: 1.35;
+        }
+        .product-card .price {
+            font-size: 1.15em;
+            font-weight: 800;
+            color: #f5e87a;
+            margin: 0;
+        }
+        .product-card .desc {
+            font-size: 0.85em;
+            color: #c9b8e8;
+            margin: 0;
+            line-height: 1.45;
+            flex: 1;
+        }
+        .buy-btn {
+            display: block;
+            background: linear-gradient(135deg, #e6d8ad, #f5e87a);
+            color: #3d1f7a;
+            font-weight: 800;
+            font-size: 0.9em;
+            text-align: center;
+            padding: 10px 16px;
+            border-radius: 24px;
+            text-decoration: none;
+            margin-top: 4px;
+            transition: background 0.2s, transform 0.15s;
+        }
+        .buy-btn:hover { background: #fff; transform: scale(1.04); }
+
+        /* ── Footer ── */
+        .page-footer {
+            text-align: center;
+            border-top: 1px solid rgba(230,216,173,0.2);
+            padding: 18px;
+            color: #c9b8e8;
+            font-size: 0.88em;
+        }
+        .page-footer a { color: #e6d8ad; text-decoration: none; }
+
+        /* ── Responsive ── */
+        @media (max-width: 600px) {
+            .container { padding: 14px 12px 40px; gap: 12px; }
+            .topbar { padding: 10px 14px; }
+            .topbar-title { font-size: 1.1em; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="topbar">
+        <span class="topbar-title">🛍️ Timeless Treasure Box Store</span>
+        <a class="back-link" href="products.html">← Products</a>
+    </nav>
+
+    <div class="page-header">
+        <h1>Shop Our eBay Store</h1>
+        <p>Browse by category below — click any item to view photos &amp; purchase on eBay</p>
+        <a class="ebay-store-btn" href="https://www.ebay.com/str/timelesstreasurebox25" target="_blank" rel="noopener">🛒 View Full eBay Store →</a>
+    </div>
+
+    <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="bracelets">💎 Bracelets</button>
+        <button class="filter-btn" data-filter="keychains">🔑 Keychains</button>
+        <button class="filter-btn" data-filter="collectibles">🎲 Vintage Collectibles</button>
+        <button class="filter-btn" data-filter="toys">🎁 Toys &amp; Mini Brands</button>
+        <button class="filter-btn" data-filter="giftsets">🎀 Gift Sets</button>
+        <button class="filter-btn" data-filter="clothing">👗 Clothing</button>
+    </div>
+
+    <div class="container">
+
+        <!-- ── BRACELETS ── -->
+        <div class="product-card" data-category="bracelets">
+            <span class="category-badge badge-bracelets">💎 Bracelets</span>
+            <h4>4pc Boho Beaded Bracelets — Tree of Life</h4>
+            <p class="price">$13.45</p>
+            <p class="desc">Elastic and stackable Bohemian bracelets featuring a Tree of Life charm. Set of 4. Up to 20% off.</p>
+            <a class="buy-btn" href="https://www.ebay.com/itm/388981106764" target="_blank" rel="noopener">🛒 View &amp; Buy on eBay</a>
+        </div>
+
+        <div class="product-card" data-category="bracelets">
+            <span class="category-badge badge-bracelets">💎 Bracelets</span>
+            <h4>Multi Layered Beaded Bracelet — Colorful Bohemian</h4>
+            <p class="price">$12.99</p>
+            <p class="desc">Vibrant multi-layer stretch bracelet with colorful Bohemian beads. Stackable and elastic fit.</p>
+            <a class="buy-btn" href="https://www.ebay.com/itm/389060540732" target="_blank" rel="noopener">🛒 View &amp; Buy on eBay</a>
+        </div>
+
+        <div class="product-card" data-category="bracelets">
+            <span class="category-badge badge-bracelets">💎 Bracelets</span>
+            <h4>4pc Beaded Bracelet Set — Butterfly, Heart &amp; Tree Charms</h4>
+            <p class="price">$11.66</p>
+            <p class="desc">Multi-layer beaded bracelet set with butterfly, heart, and tree charm accents. Stackable stretch fit.</p>
+            <a class="buy-btn" href="https://www.ebay.com/itm/388969495713" target="_blank" rel="noopener">🛒 View &amp; Buy on eBay</a>
+        </div>
+
+        <div class="product-card" data-category="bracelets">
+            <span class="category-badge badge-bracelets">💎 Bracelets</span>
+            <h4>Hand Stacked Bead Bracelet — Sparkling Multi-layer</h4>
+            <p class="price">$9.95</p>
+            <p class="desc">Sparkling artificial multi-layer beaded jewelry set. Handcrafted stackable stretch bracelets.</p>
+            <a class="buy-btn" href="https://www.ebay.com/str/timelesstreasurebox25" target="_blank" rel="noopener">🛒 View &amp; Buy on eBay</a>
+        </div>
+
+        <div class="product-card" data-category="bracelets">
+            <span class="category-badge badge-bracelets">💎 Bracelets</span>
+            <h4>8pc Bohemian Bead Bracelet Set — Stackable Stretch</h4>
+            <p class="price">$9.95</p>
+            <p class="desc">Set of 8 Bohemian-style stretch bracelets. Mix and stack for a bold layered look.</p>
+            <a class="buy-btn" href="https://www.ebay.com/str/timelesstreasurebox25" target="_blank" rel="noopener">🛒 View &amp; Buy on eBay</a>
+        </div>
+
+        <!-- ── KEYCHAINS ── -->
+        <div class="product-card" data-category="keychains">
+            <span class="category-badge badge-keychains">🔑 Keychains</span>
+            <h4>Hello Kitty Keychain</h4>
+            <p class="price">$8.99</p>
+            <p class="desc">Adorable Hello Kitty keychain charm. Great gift or bag accessory. Up to 20% off.</p>
+            <a class="buy-btn" href="https://www.ebay.com/itm/389459632433" target="_blank" rel="noopener">🛒 View &amp; Buy on eBay</a>
+        </div>
+
+        <div class="product-card" data-category="keychains">
+            <span class="category-badge badge-keychains">🔑 Keychains</span>
+            <h4>Hello Kitty Coffee Cup Keychain</h4>
+            <p class="price">$12.99</p>
+            <p class="desc">Cute Hello Kitty coffee cup shaped keychain. A fun accessory for any Hello Kitty fan.</p>
+            <a class="buy-btn" href="https://www.ebay.com/itm/389459473850" target="_blank" rel="noopener">🛒 View &amp; Buy on eBay</a>
+        </div>
+
+        <!-- ── VINTAGE COLLECTIBLES ── -->
+        <div class="product-card" data-category="collectibles">
+            <span class="category-badge badge-collectibles">🎲 Vintage Collectibles</span>
+            <h4>Lot of 20 Vintage 1980s Pewter Fantasy Miniatures — D&amp;D / RPG</h4>
+            <p class="price">$235.00</p>
+            <p class="desc">Large lot of 20 hand-painted vintage pewter fantasy figures from the 1980s. Perfect for D&amp;D and RPG collectors.</p>
+            <a class="buy-btn" href="https://www.ebay.com/str/timelesstreasurebox25" target="_blank" rel="noopener">🛒 View &amp; Buy on eBay</a>
+        </div>
+
+        <div class="product-card" data-category="collectibles">
+            <span class="category-badge badge-collectibles">🎲 Vintage Collectibles</span>
+            <h4>Grenadier AD&amp;D Orc's Lair Figure Set — Box #2011 (1980)</h4>
+            <p class="price">$120.00</p>
+            <p class="desc">Rare vintage 1980 Grenadier Advanced Dungeons &amp; Dragons Orc's Lair complete boxed figure set.</p>
+            <a class="buy-btn" href="https://www.ebay.com/str/timelesstreasurebox25" target="_blank" rel="noopener">🛒 View &amp; Buy on eBay</a>
+        </div>
+
+        <div class="product-card" data-category="collectibles">
+            <span class="category-badge badge-collectibles">🎲 Vintage Collectibles</span>
+            <h4>JASCO Pewter — Wizard Riding Snail Figurine (1981)</h4>
+            <p class="price">$13.99</p>
+            <p class="desc">Rare 1981 JASCO pewter collectible figurine of a wizard riding a snail. Whimsical fantasy piece.</p>
+            <a class="buy-btn" href="https://www.ebay.com/str/timelesstreasurebox25" target="_blank" rel="noopener">🛒 View &amp; Buy on eBay</a>
+        </div>
+
+        <div class="product-card" data-category="collectibles">
+            <span class="category-badge badge-collectibles">🎲 Vintage Collectibles</span>
+            <h4>Ral Partha 1983 Warrior Pewter Miniature — Hand Painted D&amp;D</h4>
+            <p class="price">$21.99</p>
+            <p class="desc">Vintage 1983 Ral Partha hand-painted pewter warrior miniature. Classic D&amp;D tabletop gaming figure.</p>
+            <a class="buy-btn" href="https://www.ebay.com/str/timelesstreasurebox25" target="_blank" rel="noopener">🛒 View &amp; Buy on eBay</a>
+        </div>
+
+        <div class="product-card" data-category="collectibles">
+            <span class="category-badge badge-collectibles">🎲 Vintage Collectibles</span>
+            <h4>JASCO Pewter — Boy on Donkey Figurine (1981)</h4>
+            <p class="price">$12.50</p>
+            <p class="desc">Charming 1981 JASCO pewter collectible of a boy riding a donkey. Rare vintage piece.</p>
+            <a class="buy-btn" href="https://www.ebay.com/str/timelesstreasurebox25" target="_blank" rel="noopener">🛒 View &amp; Buy on eBay</a>
+        </div>
+
+        <!-- ── TOYS & MINI BRANDS ── -->
+        <div class="product-card" data-category="toys">
+            <span class="category-badge badge-toys">🎁 Toys &amp; Mini Brands</span>
+            <h4>Wooden Cats in Library Jigsaw Puzzle — Animal Shaped Pieces</h4>
+            <p class="price">$16.00</p>
+            <p class="desc">Unique wooden jigsaw puzzle with cat-shaped pieces set in a library scene. Great gift for book and cat lovers.</p>
+            <a class="buy-btn" href="https://www.ebay.com/itm/389570275725" target="_blank" rel="noopener">🛒 View &amp; Buy on eBay</a>
+        </div>
+
+        <div class="product-card" data-category="toys">
+            <span class="category-badge badge-toys">🎁 Toys &amp; Mini Brands</span>
+            <h4>ZURU Mini Brands Home Series 1 — 5 Sealed Capsules</h4>
+            <p class="price">$45.00</p>
+            <p class="desc">Lot of 5 brand new sealed ZURU Mini Brands Home Series 1 mystery capsules. Collect all the minis!</p>
+            <a class="buy-btn" href="https://www.ebay.com/itm/389554854877" target="_blank" rel="noopener">🛒 View &amp; Buy on eBay</a>
+        </div>
+
+        <div class="product-card" data-category="toys">
+            <span class="category-badge badge-toys">🎁 Toys &amp; Mini Brands</span>
+            <h4>Zuru Snackles Series 2 — 5 Mystery Capsules</h4>
+            <p class="price">$40.00</p>
+            <p class="desc">Bundle of 5 Zuru Snackles Series 2 surprise revealing mystery capsules. New and sealed.</p>
+            <a class="buy-btn" href="https://www.ebay.com/itm/389553778308" target="_blank" rel="noopener">🛒 View &amp; Buy on eBay</a>
+        </div>
+
+        <div class="product-card" data-category="toys">
+            <span class="category-badge badge-toys">🎁 Toys &amp; Mini Brands</span>
+            <h4>Mini Brands Retro — 5 Pack Bundle (60+ Minis)</h4>
+            <p class="price">$40.00</p>
+            <p class="desc">5 pack bundle of Mini Brands Retro capsules — over 60 mystery miniatures to discover and collect!</p>
+            <a class="buy-btn" href="https://www.ebay.com/itm/389553761190" target="_blank" rel="noopener">🛒 View &amp; Buy on eBay</a>
+        </div>
+
+        <div class="product-card" data-category="toys">
+            <span class="category-badge badge-toys">🎁 Toys &amp; Mini Brands</span>
+            <h4>Snackles Surprise Ball 5 Inch Plush — Mystery Capsule (RARE)</h4>
+            <p class="price">$12.00</p>
+            <p class="desc">ZURU Snackles 5 inch plush surprise ball in a mystery capsule. Rare find for collectors!</p>
+            <a class="buy-btn" href="https://www.ebay.com/itm/389514400314" target="_blank" rel="noopener">🛒 View &amp; Buy on eBay</a>
+        </div>
+
+        <div class="product-card" data-category="toys">
+            <span class="category-badge badge-toys">🎁 Toys &amp; Mini Brands</span>
+            <h4>ZURU Mini Brands Mini Fashion Series 1 — Sealed Capsule</h4>
+            <p class="price">$11.00</p>
+            <p class="desc">New and sealed ZURU Mini Brands Mini Fashion Series 1 single mystery capsule.</p>
+            <a class="buy-btn" href="https://www.ebay.com/itm/389553833647" target="_blank" rel="noopener">🛒 View &amp; Buy on eBay</a>
+        </div>
+
+        <div class="product-card" data-category="toys">
+            <span class="category-badge badge-toys">🎁 Toys &amp; Mini Brands</span>
+            <h4>ZURU Mini Brands Mini Fashion Series 3 — 5 Capsules</h4>
+            <p class="price">$50.00</p>
+            <p class="desc">Lot of 5 new sealed ZURU Mini Brands Mini Fashion Series 3 mystery capsules.</p>
+            <a class="buy-btn" href="https://www.ebay.com/itm/389553863000" target="_blank" rel="noopener">🛒 View &amp; Buy on eBay</a>
+        </div>
+
+        <div class="product-card" data-category="toys">
+            <span class="category-badge badge-toys">🎁 Toys &amp; Mini Brands</span>
+            <h4>Sneakers Mini Brands by ZURU — Lot of 3 Capsules</h4>
+            <p class="price">$24.00</p>
+            <p class="desc">3 ZURU Sneakers Mini Brands capsules — real miniature sneaker brands to collect.</p>
+            <a class="buy-btn" href="https://www.ebay.com/itm/389612573944" target="_blank" rel="noopener">🛒 View &amp; Buy on eBay</a>
+        </div>
+
+        <div class="product-card" data-category="toys">
+            <span class="category-badge badge-toys">🎁 Toys &amp; Mini Brands</span>
+            <h4>Zuru Snackles Series 2 — Single Mystery Capsule</h4>
+            <p class="price">$12.00</p>
+            <p class="desc">Single Zuru Snackles Series 2 surprise revealing mystery capsule. New and sealed.</p>
+            <a class="buy-btn" href="https://www.ebay.com/itm/389514423173" target="_blank" rel="noopener">🛒 View &amp; Buy on eBay</a>
+        </div>
+
+        <!-- ── GIFT SETS ── -->
+        <div class="product-card" data-category="giftsets">
+            <span class="category-badge badge-giftsets">🎀 Gift Sets</span>
+            <h4>Bible Verse Makeup Bag Set — Inspirational Zipper Bag, Mirror &amp; Keychain</h4>
+            <p class="price">$18.95</p>
+            <p class="desc">Inspirational Bible verse cosmetic bag set including a zipper bag, compact mirror, and keychain. Multiple variants available.</p>
+            <a class="buy-btn" href="https://www.ebay.com/itm/388992297347" target="_blank" rel="noopener">🛒 View &amp; Buy on eBay</a>
+        </div>
+
+        <div class="product-card" data-category="giftsets">
+            <span class="category-badge badge-giftsets">🎀 Gift Sets</span>
+            <h4>4 Piece Nurse Gift Set — Cosmetic Bag, RN Bracelet, Pen &amp; Notebook</h4>
+            <p class="price">$22.95</p>
+            <p class="desc">Complete 4-piece nurse appreciation gift set with cosmetic bag, RN bracelet, ballpoint pen, and notebook. Perfect for healthcare workers.</p>
+            <a class="buy-btn" href="https://www.ebay.com/str/timelesstreasurebox25" target="_blank" rel="noopener">🛒 View &amp; Buy on eBay</a>
+        </div>
+
+        <!-- ── CLOTHING ── -->
+        <div class="product-card" data-category="clothing">
+            <span class="category-badge badge-clothing">👗 Clothing</span>
+            <h4>5 Shorts &amp; Top Sets + 5 Pairs of Leggings</h4>
+            <p class="price">$5.00</p>
+            <p class="desc">Bundle of 5 matching shorts and top sets plus 5 pairs of leggings. Great value lot.</p>
+            <a class="buy-btn" href="https://www.ebay.com/itm/389686464441" target="_blank" rel="noopener">🛒 View &amp; Buy on eBay</a>
+        </div>
+
+        <div class="product-card" data-category="clothing">
+            <span class="category-badge badge-clothing">👗 Clothing</span>
+            <h4>21 Pieces Women's Tank Tops</h4>
+            <p class="price">$8.00</p>
+            <p class="desc">Lot of 21 women's tank tops. Variety of styles and colors. Great value wholesale lot.</p>
+            <a class="buy-btn" href="https://www.ebay.com/itm/389686436170" target="_blank" rel="noopener">🛒 View &amp; Buy on eBay</a>
+        </div>
+
+        <div class="product-card" data-category="clothing">
+            <span class="category-badge badge-clothing">👗 Clothing</span>
+            <h4>Bundle of T-Shirts — Women's Small</h4>
+            <p class="price">$10.00</p>
+            <p class="desc">Bundle #21 of short sleeve women's T-shirts in small size. Variety styles included.</p>
+            <a class="buy-btn" href="https://www.ebay.com/itm/389686373487" target="_blank" rel="noopener">🛒 View &amp; Buy on eBay</a>
+        </div>
+
+        <div class="product-card" data-category="clothing">
+            <span class="category-badge badge-clothing">👗 Clothing</span>
+            <h4>DANSKO XP Clogs — Size 38 / US 8</h4>
+            <p class="price">$50.00</p>
+            <p class="desc">DANSKO XP professional clogs in European size 38 (US size 8). Classic comfort footwear.</p>
+            <a class="buy-btn" href="https://www.ebay.com/str/timelesstreasurebox25" target="_blank" rel="noopener">🛒 View &amp; Buy on eBay</a>
+        </div>
+
+    </div>
+
+    <footer class="page-footer">
+        <p>Questions? Email <a href="mailto:timelesstreasurebox25@gmail.com">timelesstreasurebox25@gmail.com</a> &nbsp;|&nbsp; <a href="https://www.ebay.com/str/timelesstreasurebox25" target="_blank">View Full eBay Store</a></p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', function () {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                const filter = this.dataset.filter;
+                document.querySelectorAll('.product-card').forEach(card => {
+                    card.style.display = (filter === 'all' || card.dataset.category === filter) ? '' : 'none';
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
