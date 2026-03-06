@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git add spotlight.html index.html)",
+      "Bash(git commit -m \"Add Spotlight page combining Events + TI, update nav\")",
+      "Bash(git push)",
+      "WebFetch(domain:www.ebay.com)"
+    ]
+  }
+}

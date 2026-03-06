@@ -1,9 +1,266 @@
-<html>
+<!-- Branding Guide: Royal Purple (#5a3d8a) with Pale Gold (#e6d8ad) and White (#ffffff) accents -->
+<html lang="en">
 
 <head>
-    <title>Products</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products — Timeless Treasure Box</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tangerine&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="CSS/products.css">
     <link rel="stylesheet" href="CSS/responsive.css">
+    <style>
+        :root {
+            --purple: #5a3d8a;
+            --dark-purple: #3d1f7a;
+            --bg-deep: #1a0d30;
+            --gold: #e6d8ad;
+            --gold-bright: #f5e87a;
+            --muted: #c9b8e8;
+            --card-bg: rgba(90,61,138,0.88);
+            --shadow: 0 6px 24px rgba(90,61,138,0.28);
+        }
+        *, *::before, *::after { box-sizing: border-box; }
+
+        body {
+            background: linear-gradient(160deg, #1a0d30 0%, #2d1a55 60%, #1a0d30 100%);
+            min-height: 100vh;
+            font-family: 'Segoe UI', Inter, Arial, sans-serif;
+        }
+        .back-overlay {
+            background: rgba(26,13,48,0.78) !important;
+        }
+
+        /* ── Navbar ── */
+        .navi {
+            background: rgba(61,31,122,0.97);
+            border-bottom: 2px solid var(--gold);
+            width: 100% !important;
+            margin: 0 !important;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .navbar {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 10px 24px;
+            background: transparent !important;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: auto;
+        }
+        .left-img {
+            width: auto !important;
+        }
+        .left-img img {
+            width: 52px !important;
+            height: auto;
+            border-radius: 10px;
+            border: 2px solid var(--gold);
+            background: rgba(255,255,255,0.9);
+            padding: 3px;
+        }
+        .right {
+            height: auto !important;
+            width: auto !important;
+            padding: 0 !important;
+        }
+        .right ul {
+            display: flex;
+            gap: 4px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            align-items: center;
+        }
+        .right ul a {
+            color: var(--gold) !important;
+            text-decoration: none;
+        }
+        .right ul a li {
+            display: inline-block;
+            color: var(--gold) !important;
+            font-size: 0.88em;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            padding: 6px 16px;
+            border-radius: 20px;
+            border: 1.5px solid transparent;
+            transition: border-color 0.2s, background 0.2s;
+            margin: 0 !important;
+        }
+        .right ul a li:hover {
+            border-color: var(--gold) !important;
+            background: rgba(230,216,173,0.12);
+            color: var(--gold-bright) !important;
+        }
+        /* Active page highlight */
+        .right ul a[href="products.html"] li {
+            border-color: var(--gold) !important;
+            color: var(--gold-bright) !important;
+        }
+
+        /* ── Main Container ── */
+        .main-container {
+            background: transparent !important;
+            width: 100% !important;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 36px 24px 48px;
+        }
+        .main-section {
+            background: transparent !important;
+            padding: 0 !important;
+        }
+
+        /* ── Page Headings ── */
+        .heading-txt {
+            font-family: 'Tangerine', cursive !important;
+            font-size: 3.8em !important;
+            color: var(--gold) !important;
+            padding: 0 0 4px 0 !important;
+            text-shadow: 0 2px 16px rgba(230,216,173,0.3);
+            line-height: 1.1;
+            font-size: 50px;
+        }
+        .heading-txts {
+            font-family: 'Segoe UI', Arial, sans-serif !important;
+            font-size: 1em !important;
+            color: var(--muted) !important;
+            font-weight: 400 !important;
+            letter-spacing: 0.5px;
+            margin: 0 0 24px 0 !important;
+        }
+        hr {
+            border: none;
+            border-top: 1px solid rgba(230,216,173,0.25) !important;
+            margin: 0 0 28px 0;
+        }
+
+        /* ── Product Tiles ── */
+        .first-section {
+            display: flex !important;
+            flex-wrap: wrap;
+            gap: 24px;
+            height: auto !important;
+            padding: 0 !important;
+        }
+        .first-sec-whole {
+            width: 280px !important;
+            height: auto !important;
+            margin: 0 !important;
+            border-radius: 16px;
+            overflow: hidden;
+            background: var(--card-bg);
+            border: 1.5px solid rgba(230,216,173,0.22);
+            box-shadow: var(--shadow);
+            position: relative;
+            transition: transform 0.22s, box-shadow 0.22s, border-color 0.22s;
+        }
+        .first-sec-whole:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 14px 40px rgba(90,61,138,0.55);
+            border-color: rgba(230,216,173,0.62);
+            cursor: pointer;
+        }
+        .first-sec-whole a {
+            display: block;
+        }
+        .img, .img1 {
+            width: 280px !important;
+            height: 310px !important;
+            object-fit: cover;
+        }
+        .over-txt {
+            background: linear-gradient(to top, rgba(26,13,48,0.92) 55%, transparent) !important;
+            width: 280px !important;
+        }
+        .over-txt p {
+            color: var(--gold) !important;
+            font-family: 'Segoe UI', Arial, sans-serif !important;
+            font-size: 1.05em !important;
+            font-weight: 700 !important;
+            letter-spacing: 0.5px;
+            text-shadow: 0 1px 6px rgba(0,0,0,0.6);
+        }
+
+        /* ── Banner section ── */
+        .third-section {
+            margin-top: 40px;
+            height: auto !important;
+        }
+        .image {
+            width: 100% !important;
+            height: auto !important;
+        }
+        .image img {
+            width: 100% !important;
+            height: auto !important;
+            border-radius: 14px;
+            box-shadow: var(--shadow);
+            border: 1.5px solid rgba(230,216,173,0.2);
+        }
+
+        /* ── Footer ── */
+        footer {
+            background: rgba(26,13,48,0.88);
+            border-top: 1px solid rgba(230,216,173,0.18);
+            margin-top: 40px;
+        }
+        .foot {
+            background: transparent !important;
+            width: 100% !important;
+            max-width: 1100px;
+            margin: 0 auto !important;
+            padding: 40px 24px 24px !important;
+        }
+        .foot-head {
+            color: var(--gold) !important;
+            font-family: 'Tangerine', cursive;
+            font-size: 1.7em;
+            letter-spacing: 1px;
+        }
+        .about-us-body {
+            color: var(--muted) !important;
+            font-size: 0.92em !important;
+            line-height: 1.6;
+        }
+        .hori-line {
+            border-left-color: rgba(230,216,173,0.22) !important;
+        }
+        .copy-right {
+            background: rgba(26,13,48,0.7);
+            color: var(--muted) !important;
+            width: 100%;
+            padding: 14px 0;
+            text-align: center;
+            margin: 0;
+        }
+        .copy-right-txt {
+            padding: 0 !important;
+        }
+        .copy-right-txt p {
+            color: var(--muted);
+            font-size: 0.85em;
+            margin: 0;
+        }
+
+        /* ── Scroll-to-top ── */
+        .upward-top-button {
+            background: var(--purple) !important;
+            border: 2px solid var(--gold);
+            color: var(--gold) !important;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 700px) {
+            .first-section { justify-content: center; }
+            .heading-txt { font-size: 2.6em !important; }
+            .navbar { padding: 8px 14px; }
+            .main-container { padding: 24px 14px 36px; }
+        }
+    </style>
 </head>
 
 
@@ -18,36 +275,20 @@
     <div class="navi">
         <div class="navbar">
             <div class="left-img">
-                <a href="indexshop.html">
+                <a href="index.html">
                     <img src="images/logo.png" alt="">
                 </a>
             </div>
             <div class="right">
                 <ul>
-                    <a href="indexshop.html">
+                    <a href="index.html">
                         <li>HOME</li>
                     </a>
-                  
                     <a href="products.html">
-                        <li style="color:rgb(226, 183, 65)">PRODUCTS</li>
+                        <li>PRODUCTS</li>
                     </a>
-                    <!-- <a href="contact.html">
-                        <li>CONTACT</li>
-                    </a>
-                    <a href="about.html">
-                        <li>ABOUT US</li>
-                    </a> -->
-
                 </ul>
             </div>
-            <!-- <div class="right-img">
-                <a href="#">
-                    <img class="ing" src="images/white.png" alt="">
-                </a>
-                <a>
-                    <img class="ing1" src="images/yellow.png" alt="">
-                </a>
-            </div> -->
         </div>
     </div>
     <div class="top-button">
@@ -60,47 +301,39 @@
     <div class="main-container">
         <div class="main-section p_duct">
             <div class="heading-txt">Timeless Treasure Box Products</div>
-            <div class="search-result-txt">
-                <p></p>
-            </div>
             <div class="heading-txts">Uniquely Yours, Forever Timeless.</div>
-            <hr style="border: 1px ; width: 100%;">
+            <hr>
             <div class="first-section product_section">
 
                 <div class="first-sec-whole">
-                        <a href="brooches_gallery.html">
-                        <div class="over-txt"><p style="color: #5A3D8A;">Brooches</p></div>
-                       <img class="img1" src="https://raw.githubusercontent.com/StxChange/Images/main/BO8-%2085%20%20%20D%20lge%20yw%20dia%20leaf%20w%20gr%20enam.jpg" alt="">
-                       <img class="img  opo" src="https://raw.githubusercontent.com/StxChange/Images/main/HMBO-%2047%20GS%20rd%20dia,%20lapis%20lazuli%20&%20malachite%20owl%20yg.JPG" alt="">
-                     </a>
+                    <a href="brooches_gallery.html">
+                        <div class="over-txt"><p>Brooches</p></div>
+                        <img class="img1" src="https://raw.githubusercontent.com/StxChange/Images/main/BO8-%2085%20%20%20D%20lge%20yw%20dia%20leaf%20w%20gr%20enam.jpg" alt="">
+                        <img class="img  opo" src="https://raw.githubusercontent.com/StxChange/Images/main/HMBO-%2047%20GS%20rd%20dia,%20lapis%20lazuli%20&%20malachite%20owl%20yg.JPG" alt="">
+                    </a>
                 </div>
 
                 <div class="first-sec-whole">
-                        <a href="beaded_pens_gallery.html">
-                        <div class="over-txt"><p style="color: #E0F0FF;">Beaded Pens</p></div>
+                    <a href="beaded_pens_gallery.html">
+                        <div class="over-txt"><p>Beaded Pens</p></div>
                         <img class="img1" src="https://stxchange.github.io/TimelessTreasurebox/Products/WS%20Beaded%20Pens/BP_YButterfly_YBP.jpg" alt="Beaded Pens">
                         <img class="img  opo" src="https://stxchange.github.io/TimelessTreasurebox/Products/WS%20Beaded%20Pens/BP_Stitch_BlueBP.jpg" alt="Beaded Pens">
                     </a>
                 </div>
 
                 <div class="first-sec-whole">
-                        <a href="ebay_store.html">
-                        <div class="over-txt"><p style="color: #f5e87a;">eBay Store</p></div>
-                        <img class="img1" src="images/background.jpg" alt="eBay Store" style="filter:hue-rotate(260deg) saturate(1.3);">
-                        <img class="img  opo" src="images/background.jpg" alt="eBay Store" style="filter:hue-rotate(200deg) saturate(1.5);">
+                    <a href="ebay_store.html">
+                        <div class="over-txt"><p>eBay Store</p></div>
+                        <img class="img1" src="images/ebay_store2.png" alt="eBay Store">
+                        <img class="img  opo" src="images/ebay_store.png" alt="eBay Store">
                     </a>
                 </div>
 
             </div>
             <div class="third-section product_section3">
-
-        
                 <div class="image">
                     <img src="images/ttb_vendor_event_banner.jpg" alt="">
                 </div>
-
-
-
             </div>
         </div>
     </div>
@@ -108,11 +341,11 @@
 <footer>
     <div class="foot">
         <div class="about-us">
-            <div class="foot-head">TIMELESS TREASURE BOX</div>
+            <div class="foot-head">Timeless Treasure Box</div>
             <div class="about-us-body">At Timeless Treasure Box, every piece tells a story. From handcrafted beaded pens and sparkling brooches to healing crystals and charm jewelry, we create unique treasures for every occasion. Find us at local craft fairs and markets, or shop our collection online — because the best gifts are the ones made with love.</div>
         </div>
         <div class="hori-line"></div>
-
+    </div>
 </footer>
 <div class="copy-right">
     <div class="copy-right-txt">
