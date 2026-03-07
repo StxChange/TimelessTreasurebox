@@ -23,12 +23,18 @@
   <meta property="og:type" content="website">
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Tangerine&display=swap');
-        body, html {
-            height: 100%;
+        html {
+            min-height: 100%;
             margin: 0;
             padding: 0;
+            overflow-x: hidden;
+        }
+        body {
+            min-height: 100%;
+            margin: 0;
+            padding: 0 0 48px 220px; /* bottom clears fixed footer; left clears sidebar */
             font-family: 'Segoe UI', Arial, sans-serif;
-            overflow: hidden;
+            overflow-x: hidden;
         }
         .video-bg {
             position: fixed;
@@ -318,6 +324,7 @@
         @media (max-width: 600px) { .page-footer { left: 0; font-size: 0.8em; padding: 6px 8px; } }
         /* Responsive Design */
         @media (max-width: 900px) {
+            body { padding-left: 140px; }
             .sidebar {
                 width: 140px;
             }
@@ -346,6 +353,7 @@
             }
         }
         @media (max-width: 600px) {
+            body { padding-left: 0; padding-top: 56px; } /* sidebar becomes top bar */
             .sidebar {
                 position: fixed;
                 top: 0;
