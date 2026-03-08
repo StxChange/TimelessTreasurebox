@@ -185,6 +185,33 @@
             text-shadow: 0 1px 6px rgba(0,0,0,0.6);
         }
 
+        /* ── Always-visible tile label bar ── */
+        .tile-label {
+            background: linear-gradient(135deg, rgba(61,31,122,0.98), rgba(45,20,90,0.99));
+            padding: 13px 16px 11px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px solid rgba(230,216,173,0.22);
+            gap: 8px;
+        }
+        .tile-name {
+            color: var(--gold);
+            font-weight: 700;
+            font-size: 1em;
+            letter-spacing: 0.5px;
+        }
+        .tile-cta {
+            color: var(--muted);
+            font-size: 0.78em;
+            font-style: italic;
+            white-space: nowrap;
+            transition: color 0.2s;
+        }
+        .first-sec-whole:hover .tile-cta {
+            color: var(--gold-bright);
+        }
+
         /* ── Banner section ── */
         .third-section {
             margin-top: 40px;
@@ -324,6 +351,10 @@
                         <div class="over-txt"><p>Brooches</p></div>
                         <img class="img1" src="https://raw.githubusercontent.com/StxChange/Images/main/BO8-%2085%20%20%20D%20lge%20yw%20dia%20leaf%20w%20gr%20enam.jpg" alt="">
                         <img class="img  opo" src="https://raw.githubusercontent.com/StxChange/Images/main/HMBO-%2047%20GS%20rd%20dia,%20lapis%20lazuli%20&%20malachite%20owl%20yg.JPG" alt="">
+                        <div class="tile-label">
+                            <span class="tile-name">Brooches</span>
+                            <span class="tile-cta">Tap to explore →</span>
+                        </div>
                     </a>
                 </div>
 
@@ -332,6 +363,10 @@
                         <div class="over-txt"><p>Beaded Pens</p></div>
                         <img class="img1" src="https://stxchange.github.io/TimelessTreasurebox/Products/WS%20Beaded%20Pens/BP_YButterfly_YBP.jpg" alt="Beaded Pens">
                         <img class="img  opo" src="https://stxchange.github.io/TimelessTreasurebox/Products/WS%20Beaded%20Pens/BP_Stitch_BlueBP.jpg" alt="Beaded Pens">
+                        <div class="tile-label">
+                            <span class="tile-name">Beaded Pens</span>
+                            <span class="tile-cta">Tap to explore →</span>
+                        </div>
                     </a>
                 </div>
 
@@ -340,6 +375,10 @@
                         <div class="over-txt"><p>eBay Store</p></div>
                         <img class="img1" src="images/ebay_store2.png" alt="eBay Store">
                         <img class="img  opo" src="images/ebay_store.png" alt="eBay Store">
+                        <div class="tile-label">
+                            <span class="tile-name">eBay Store</span>
+                            <span class="tile-cta">Tap to explore →</span>
+                        </div>
                     </a>
                 </div>
 
